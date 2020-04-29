@@ -1,0 +1,32 @@
+{
+  "title": "Vault Initialization Lab",
+  "description": "Initialize Vault in a variety of exciting ways with different choices and outcomes; you are the Vault initialization explorer!",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Initialize Vault: the default",
+        "text": "step1.md"
+      },
+      {
+        "title": "Initialize Vault: JSON output, please!",
+        "text": "step2.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "bash"
+  }
+}
