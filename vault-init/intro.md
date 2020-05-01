@@ -8,4 +8,4 @@ This lab guides you through initializing Vault in a variety of ways so that you 
 
 Vault is already running with a minimal Filesystem storage based configuration.
 
-After each example initialization, you will have the opportunity to execute a clean up script that will reset Vault for the next example.
+After each example initialization, you will have the opportunity to reset Vault for the next example.
