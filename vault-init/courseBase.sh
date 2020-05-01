@@ -10,6 +10,7 @@ export VAULT_VERSION MICROVAULT_VAULT_CONFIG MICROVAULT_VAULT_ADDR PUBLIC_IP IF
 curl -L -o ~/vault.zip https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip
 unzip -d  ~/.bin/ ~/vault.zip
 chmod +x ~/.bin/vault
+rm -f vault.zip
 
 mkdir -p vault/{config,data,log}
 
@@ -31,4 +32,6 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   }
 EOF
 
-nohup sh -c "vault server -config /home/scrapbook/tutorial/vault/config >~/log/vault.log 2>&1" > ~/log/nohup.log &
+export PATH=/home/scrapbook/tutorial/.bin:$PATH
+
+nohup sh -c "/home/scrapbook/tutorial/.bin/vault server -config /home/scrapbook/tutorial/vault/config >~/log/vault.log 2>&1" > ~/log/nohup.log &
