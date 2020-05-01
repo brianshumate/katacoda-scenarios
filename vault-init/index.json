@@ -27,7 +27,7 @@
     "client": [
       {
         "file": "reset",
-        "target": "/home/scrapbook/tutorial",
+        "target": "/home/scrapbook/.bin/",
         "chmod": "+x"
       }
     ]

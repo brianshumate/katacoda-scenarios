@@ -34,4 +34,4 @@ EOF
 
 export PATH=/home/scrapbook/tutorial/.bin:$PATH
 
-nohup sh -c "/home/scrapbook/tutorial/.bin/vault server -config /home/scrapbook/tutorial/vault/config >~/log/vault.log 2>&1" > ~/log/nohup.log &
+nohup sh -c "/home/scrapbook/.bin/vault server -config /home/scrapbook/tutorial/vault/config >~/vault/log/vault.log 2>&1" > /home/scrapbook/tutorial/vault/log/nohup.log &
