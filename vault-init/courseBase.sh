@@ -1,7 +1,7 @@
 VAULT_VERSION="1.4.1"
-MICROVAULT_VAULT_CONFIG="/home/scrapbook/tutorial/vault/config/main.hcl"
+MICROVAULT_VAULT_CONFIG="/root/vault/config/main.hcl"
 MICROVAULT_VAULT_ADDR="http://127.0.0.1:8200"
-MICROVAULT_VAULT_DATA=/home/scrapbook/tutorial/vault/data
+MICROVAULT_VAULT_DATA=/root/vault/data
 PUBLIC_IP=$(ip route get 1 | cut -d ' ' -f 7)
 IF=$(ip route get 1 | head -n1 | cut -d ' ' -f 5)
 
@@ -36,4 +36,4 @@ EOF
 export PATH=/home/scrapbook/tutorial/.bin:$PATH
 export VAULT_ADDR=http://127.0.0.1:8200
 
-nohup sh -c "/home/scrapbook/.bin/vault server -config /home/scrapbook/tutorial/vault/config > /home/scrapbook/tutorial/vault/log/vault.log 2>&1" > /home/scrapbook/tutorial/vault/log/nohup.log &
+nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &

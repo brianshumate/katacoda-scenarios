@@ -27,7 +27,7 @@
     "client": [
       {
         "file": "reset.sh",
-        "target": "/home/scrapbook/.bin",
+        "target": "/root/.bin",
         "chmod": "+x"
       }
     ]
