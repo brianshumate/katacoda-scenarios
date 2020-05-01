@@ -20,7 +20,13 @@
     },
     "finish": {
       "text": "finish.md"
-    }
+    },
+  "assets": {
+    "client": [{
+        "file": "install.sh",
+        "target": "/home/scrapbook",
+        "chmod": "+x"
+      }]}
   },
   "environment": {
     "uilayout": "terminal",
