@@ -26,17 +26,17 @@
   "assets": {
     "client": [
       {
-        "file": "reset",
-        "target": "/home/scrapbook/.bin/",
+        "file": "reset.sh",
+        "target": "/home/scrapbook/.bin",
         "chmod": "+x"
       }
     ]
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+    "uimessage1": "\u001b[32mVault Initialization Lab version 0.2.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "bash"
+    "imageid": "ubuntu"
   }
 }
