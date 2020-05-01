@@ -33,12 +33,12 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   }
 EOF
 
-cat << EOF >> .bin/reset.sh
+cat << EOF >> /root/.bin/reset.sh
 kill $(pidof vault)
 rm -rf /root/vault/{data,log}/*
 nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &
 EOF
-chmod +x .bin/reset.sh
+chmod +x /root/.bin/reset.sh
 
 export PATH="/home/scrapbook/tutorial/.bin:$PATH"
 
