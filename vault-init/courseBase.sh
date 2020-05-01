@@ -33,6 +33,13 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   }
 EOF
 
+cat << EOF >> .bin/reset.sh
+kill $(pidof vault)
+rm -rf /root/vault/{data,log}/*
+nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &
+EOF
+chmod +x .bin/reset.sh
+
 export PATH="/home/scrapbook/tutorial/.bin:$PATH"
 
 printf "\n\nexport VAULT_ADDR=http://127.0.0.1:8200\n" >> /root/.bashrc

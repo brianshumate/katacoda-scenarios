@@ -11,3 +11,9 @@ In this example we are simply asking Vault to output the results as JSON.
 ```
 vault operator init -format=json
 ```{{execute T1}}
+
+Now that you have observed the JSON output behavior, go ahead and reset Vault in preparation for the next step.
+
+```
+reset.sh
+```{{execute T1}}

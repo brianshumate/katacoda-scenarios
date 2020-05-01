@@ -14,5 +14,5 @@ vault operator init
 Now that you have observed the default behavior, go ahead and reset Vault in preparation for the next step.
 
 ```
-./reset
+reset.sh
 ```{{execute T1}}
