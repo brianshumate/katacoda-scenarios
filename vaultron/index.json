@@ -15,8 +15,9 @@
       }
     ],
     "intro": {
+      "courseData": "courseBase.sh",
       "text": "intro.md",
-      "credits": ""
+      "credits": "Brian Shumate"
     },
     "finish": {
       "text": "finish.md"
