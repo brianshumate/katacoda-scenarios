@@ -10,3 +10,9 @@ The default output of the command is table style.
 ```
 vault operator init
 ```{{execute T1}}
+
+Now that you have observed the default behavior, go ahead and reset Vault in preparation for the next step.
+
+```
+./reset
+```{{execute T1}}

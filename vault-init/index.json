@@ -15,12 +15,22 @@
       }
     ],
     "intro": {
+      "courseData": "courseBase.sh",
       "text": "intro.md",
       "credits": "Brian Shumate"
     },
     "finish": {
       "text": "finish.md"
     }
+  },
+  "assets": {
+    "client": [
+      {
+        "file": "reset",
+        "target": "/home/scrapbook/tutorial",
+        "chmod": "+x"
+      }
+    ]
   },
   "environment": {
     "uilayout": "terminal",

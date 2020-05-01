@@ -1,0 +1,3 @@
+kill $(pidof vault)
+rm -rf $PWD/vault/{data,log}/*
+nohup sh -c "vault server -config /home/scrapbook/tutorial/vault/config >~/log/vault.log 2>&1" > ~/log/nohup.log &

@@ -1,3 +1,3 @@
 # Interactive Katacoda Scenarios
 
-My example Katacodas
+My example Katacoda scenarios
