@@ -30,3 +30,5 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
     path           = "$MICROVAULT_VAULT_DATA"
   }
 EOF
+
+nohup sh -c "vault server -config /home/scrapbook/tutorial/vault/config >~/log/vault.log 2>&1" > ~/log/nohup.log &
