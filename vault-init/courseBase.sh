@@ -1,4 +1,6 @@
+# shellcheck disable=SC2016,SC2148
 VAULT_VERSION="1.4.1"
+MICROVAULT_VAULT_SYSTEMD_UNIT="/etc/systemd/system/vault.service"
 MICROVAULT_VAULT_CONFIG="/root/vault/config/main.hcl"
 MICROVAULT_VAULT_ADDR="http://127.0.0.1:8200"
 MICROVAULT_VAULT_DATA=/root/vault/data
@@ -15,8 +17,45 @@ rm -f vault.zip
 
 mkdir -p vault/{config,data,log}
 
-# Vault configuration
+# Vault systemd unit
 
+cat << EOF >> "$MICROVAULT_VAULT_SYSTEMD_UNIT"
+[Unit]
+Description="HashiCorp Vault - A tool for managing secrets"
+Documentation=https://www.vaultproject.io/docs/
+Requires=network-online.target
+After=network-online.target
+ConditionFileNotEmpty=$MICROVAULT_VAULT_CONFIG
+StartLimitBurst=3
+
+[Service]
+User=vault
+Group=vault
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=yes
+PrivateDevices=yes
+SecureBits=keep-caps
+AmbientCapabilities=CAP_IPC_LOCK
+CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
+NoNewPrivileges=yes
+ExecStart=/root/.bin/vault server -config /root/vault/config
+ExecReload=/bin/kill --signal HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+StartLimitIntervalSec=60
+StartLimitBurst=3
+LimitNOFILE=65536
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Vault configuration
 cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   api_addr         = "$MICROVAULT_VAULT_ADDR"
   disable_mlock    = true
@@ -33,10 +72,10 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   }
 EOF
 
-cat << EOF >> /root/.bin/reset.sh
+cat << 'EOF' >> /root/.bin/reset.sh
 kill $(pidof vault)
 rm -rf /root/vault/{data,log}/*
-nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &
+nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log & > /dev/null
 EOF
 chmod +x /root/.bin/reset.sh
 
@@ -44,7 +83,9 @@ export PATH="/home/scrapbook/tutorial/.bin:$PATH"
 
 printf "\n\nexport VAULT_ADDR=http://127.0.0.1:8200\n" >> /root/.bashrc
 
-nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &
+echo 'export VAULT_ADDR="http://127.0.0.1:8200"' >> /etc/bash.bashrc
+echo 'export PATH="$PATH:$HOME/.bin"' >> /etc/bash.bashrc
 
-export VAULT_ADDR="http://127.0.0.1:8200"
-export PATH="$HOME/.bin:$PATH"
+systemctl daemon-reload
+systemctl enable vault
+systemctl start vault
