@@ -15,10 +15,15 @@ unzip -d  ~/.bin/ ~/vault.zip
 chmod +x ~/.bin/vault
 rm -f vault.zip
 
+# Add vault user and group
+addgroup vault && adduser --system --ingroup vault vault
+
+chown -R vault:vault "$HOME"/vault
+
+# Make Vault state directories
 mkdir -p vault/{config,data,log}
 
-# Vault systemd unit
-
+# Write Vault systemd unit
 cat << EOF >> "$MICROVAULT_VAULT_SYSTEMD_UNIT"
 [Unit]
 Description="HashiCorp Vault - A tool for managing secrets"
@@ -55,7 +60,7 @@ LimitMEMLOCK=infinity
 WantedBy=multi-user.target
 EOF
 
-# Vault configuration
+# Write Vault configuration
 cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   api_addr         = "$MICROVAULT_VAULT_ADDR"
   disable_mlock    = true
@@ -72,16 +77,15 @@ cat << EOF >> "$MICROVAULT_VAULT_CONFIG"
   }
 EOF
 
-cat << 'EOF' >> /root/.bin/reset.sh
-kill $(pidof vault)
+# Write reset script
+cat << 'EOF' >> /root/.bin/reset
+systemctl stop vault
 rm -rf /root/vault/{data,log}/*
-nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log & > /dev/null
+systemctl start vault
 EOF
 chmod +x /root/.bin/reset.sh
 
 export PATH="/home/scrapbook/tutorial/.bin:$PATH"
-
-printf "\n\nexport VAULT_ADDR=http://127.0.0.1:8200\n" >> /root/.bashrc
 
 echo 'export VAULT_ADDR="http://127.0.0.1:8200"' >> /etc/bash.bashrc
 echo 'export PATH="$PATH:$HOME/.bin"' >> /etc/bash.bashrc
@@ -89,3 +93,4 @@ echo 'export PATH="$PATH:$HOME/.bin"' >> /etc/bash.bashrc
 systemctl daemon-reload
 systemctl enable vault
 systemctl start vault
+
