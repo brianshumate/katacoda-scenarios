@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 # shellcheck disable=SC2016
 VAULT_VERSION="1.4.1"
-MICROVAULT_VAULT_SYSTEMD_UNIT="/etc/systemd/system/vault.service"
 MICROVAULT_VAULT_CONFIG="/root/vault/config/main.hcl"
 MICROVAULT_VAULT_ADDR="http://127.0.0.1:8200"
 MICROVAULT_VAULT_DATA=/root/vault/data
@@ -26,7 +25,7 @@ chown -R vault:vault "$HOME"/vault
 mkdir -p vault/{config,data,log}
 
 # Write Vault systemd unit
-cat << EOF >> "$MICROVAULT_VAULT_SYSTEMD_UNIT"
+cat << EOF >> /etc/systemd/system/vault.service
 [Unit]
 Description="HashiCorp Vault - A tool for managing secrets"
 Documentation=https://www.vaultproject.io/docs/
