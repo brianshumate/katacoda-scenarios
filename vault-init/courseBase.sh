@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 # shellcheck disable=SC2016
 VAULT_VERSION="1.4.1"
 MICROVAULT_VAULT_SYSTEMD_UNIT="/etc/systemd/system/vault.service"
@@ -12,11 +12,10 @@ export VAULT_VERSION MICROVAULT_VAULT_CONFIG MICROVAULT_VAULT_ADDR PUBLIC_IP IF
 
 # Get Vault release
 curl -L -o "$HOME"/vault.zip https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip
-unzip -d  "$HOME"/.bin/ "$HOME"/vault.zip
-chmod +x "$HOME"/.bin/vault
+unzip -d  /usr/local/bin/ "$HOME"/vault.zip
+chmod +x /usr/local/bin/vault
 rm -f vault.zip
-setcap cap_ipc_lock=+ep "$HOME"/.bin/vault
-
+setcap cap_ipc_lock=+ep /usr/local/bin/vault
 
 # Add vault user and group
 addgroup vault && adduser --system --ingroup vault vault
@@ -47,7 +46,7 @@ SecureBits=keep-caps
 AmbientCapabilities=CAP_IPC_LOCK
 CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
 NoNewPrivileges=yes
-ExecStart=/root/.bin/vault server -config /root/vault/config
+ExecStart=/usr/local/bin/vault server -config /root/vault/config
 ExecReload=/bin/kill --signal HUP $MAINPID
 KillMode=process
 KillSignal=SIGINT
