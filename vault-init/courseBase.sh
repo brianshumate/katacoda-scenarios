@@ -1,4 +1,5 @@
-# shellcheck disable=SC2016,SC2148
+#!/usr/bin/env bash
+# shellcheck disable=SC2016
 VAULT_VERSION="1.4.1"
 MICROVAULT_VAULT_SYSTEMD_UNIT="/etc/systemd/system/vault.service"
 MICROVAULT_VAULT_CONFIG="/root/vault/config/main.hcl"
@@ -10,10 +11,12 @@ IF=$(ip route get 1 | head -n1 | cut -d ' ' -f 5)
 export VAULT_VERSION MICROVAULT_VAULT_CONFIG MICROVAULT_VAULT_ADDR PUBLIC_IP IF
 
 # Get Vault release
-curl -L -o ~/vault.zip https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip
-unzip -d  ~/.bin/ ~/vault.zip
-chmod +x ~/.bin/vault
+curl -L -o "$HOME"/vault.zip https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip
+unzip -d  "$HOME"/.bin/ "$HOME"/vault.zip
+chmod +x "$HOME"/.bin/vault
 rm -f vault.zip
+setcap cap_ipc_lock=+ep "$HOME"/.bin/vault
+
 
 # Add vault user and group
 addgroup vault && adduser --system --ingroup vault vault
@@ -93,4 +96,3 @@ echo 'export PATH="$PATH:$HOME/.bin"' >> /etc/bash.bashrc
 systemctl daemon-reload
 systemctl enable vault
 systemctl start vault
-
