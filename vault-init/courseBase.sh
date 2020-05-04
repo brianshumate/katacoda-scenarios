@@ -45,3 +45,6 @@ export PATH="/home/scrapbook/tutorial/.bin:$PATH"
 printf "\n\nexport VAULT_ADDR=http://127.0.0.1:8200\n" >> /root/.bashrc
 
 nohup sh -c "/root/.bin/vault server -config /root/vault/config > /root/vault/log/vault.log 2>&1" > /root/vault/log/nohup.log &
+
+export VAULT_ADDR="http://127.0.0.1:8200"
+export PATH="$HOME/.bin:$PATH"
