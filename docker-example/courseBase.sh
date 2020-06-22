@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-terraform_version="0.12.26"
+export terraform_version="0.12.26"
 
 # Download and install Terraform
 curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/"$terraform_version"/terraform_"$terraform_version"_linux_amd64.zip

@@ -10,9 +10,9 @@ The first step in this lab is to use `terraform` to start the containers. This i
 
 Begin by changing into the `vss` project directory.
 
-```shell
-$ cd vss
 ```
+$ cd vss
+```{{execute T1}}
 
 Next, initialize the Terraform configuration.
 
