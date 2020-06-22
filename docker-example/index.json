@@ -1,0 +1,50 @@
+{
+  "title": "Vault Metrics Lab",
+  "description": "Check out Vault metrics",
+  "difficulty": "beginner",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Start containers",
+        "text": "step1.md"
+      },
+      {
+        "title": "Initialize and unseal Vault",
+        "text": "step2.md"
+      },
+      {
+        "title": "Perform actions to make metrics",
+        "text": "step3.md"
+      },
+      {
+        "title": "Analyze metrics",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "courseData": "courseBase.sh",
+      "text": "intro.md",
+      "credits": "Brian Shumate"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "assets": {
+    "client": [
+      {
+        "file": "reset.sh",
+        "target": "/root/.bin",
+        "chmod": "+x"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mVault Metrics Lab version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
