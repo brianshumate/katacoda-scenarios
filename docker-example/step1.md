@@ -39,8 +39,6 @@ Finally, if everything appears to be okay, apply the plan from the file.
 terraform apply vault-metrics-lab.plan
 ```{{execute T1}}
 
-When prompted to confirm, type `yes` and press **return**.
-
 If all goes according to plan, you should observe this in the successful output.
 
 ```

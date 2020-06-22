@@ -46,9 +46,7 @@
     "hideintro": false,
     "hidefinish": false,
     "showdashboard": true,
-    "dashboards": [{"name": "URL", "href": "https://www.katacoda.com"},
-        {"name": "Splunk Web", "port": 8000},
-        {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"}]
+    "dashboards": [{"name": "Splunk Web", "href": "http://127.0.0.1:8000"}]
   },
   "backend": {
     "imageid": "docker"
