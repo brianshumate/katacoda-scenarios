@@ -1,14 +1,20 @@
-Start containers
+## Start containers
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
-The first step is to use `terraform` to start the containers. This is done in three steps:
+The first step in this lab is to use `terraform` to start the containers. This is done with 3 terraform commands to accomplish the following tasks:
 
-1. Initialize the configuration
-2. Define the plan
-3. Apply the plan
+1. Initialize configuration
+2. Define plan
+3. Apply plan
 
-Start by initializing the Terraform configuration.
+Begin by changing into the `vss` project directory.
+
+```shell
+$ cd vss
+```
+
+Next, initialize the Terraform configuration.
 
 ```
 terraform init
@@ -16,7 +22,7 @@ terraform init
 
 Successful output should include the message **Terraform has been successfully initialized!**.
 
-Now, define a plan with the filename `vault-metrics-lab.plan`.
+Now you can define a plan file with the filename `vault-metrics-lab.plan`.
 
 ```
 terraform plan -out vault-metrics-lab.plan
@@ -28,7 +34,7 @@ If this step is successful you will find the following message in the `terraform
 This plan was saved to: vault-metrics-lab.plan
 ```
 
-Finally, if everything appears to be okay, apply the plan.
+Finally, if everything appears to be okay, apply the plan from the file.
 
 ```
 terraform apply vault-metrics-lab.plan

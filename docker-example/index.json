@@ -42,7 +42,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mVault Metrics Lab version 0.1.\u001b[m\r\n",
+    "uimessage1": "\u001b[32mVault Metrics Lab version 0.2.\u001b[m\r\n",
     "hideintro": false,
     "hidefinish": false
   },
