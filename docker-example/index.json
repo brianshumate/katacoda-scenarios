@@ -18,7 +18,7 @@
         "text": "step3.md"
       },
       {
-        "title": "Analyze metrics",
+        "title": "Analyze generated metrics",
         "text": "step4.md"
       }
     ],
@@ -41,10 +41,14 @@
     ]
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
     "uimessage1": "\u001b[32mVault Metrics Lab version 0.2.\u001b[m\r\n",
     "hideintro": false,
-    "hidefinish": false
+    "hidefinish": false,
+    "showdashboard": true,
+    "dashboards": [{"name": "URL", "href": "https://www.katacoda.com"},
+        {"name": "Splunk Web", "port": 8000},
+        {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"}]
   },
   "backend": {
     "imageid": "docker"
