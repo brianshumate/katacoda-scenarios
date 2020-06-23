@@ -1,6 +1,6 @@
 {
-  "title": "Vault Metrics Lab",
-  "description": "Check out Vault metrics",
+  "title": "Vault Telemetry Lab",
+  "description": "Discover Vault telemetry metrics in Splunk",
   "difficulty": "intermediate",
   "time": "30 minutes",
   "details": {
@@ -53,7 +53,7 @@
   },
   "environment": {
     "uilayout": "terminal-iframe",
-    "uimessage1": "\u001b[32mVault Metrics Lab version 0.2.\u001b[m\r\n",
+    "uimessage1": "\u001b[32mVault Telemetry Lab→ \u001b[m\r\n",
     "hideintro": false,
     "hidefinish": false,
     "showdashboard": true,
