@@ -8,4 +8,6 @@ curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/"$terr
 unzip -d  /usr/local/bin/ "$HOME"/terraform.zip && \
 
 # Clone repository
-git clone https://github.com/brianshumate/vss.git
+# git clone https://github.com/brianshumate/vss.git
+
+mkdir /home/scrapbook/tutorial/vtl

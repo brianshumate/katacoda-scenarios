@@ -34,8 +34,8 @@
   "assets": {
     "client": [
       {
-        "file": "vtl",
-        "target": "/home/scrapbook/tutorial"
+        "file": "vtl/*",
+        "target": "/home/scrapbook/tutorial/vtl"
       }
     ]
   },
