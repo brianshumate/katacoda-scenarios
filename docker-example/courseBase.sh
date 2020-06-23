@@ -159,7 +159,7 @@ resource "docker_container" "vault" {
   }
   upload {
     content = data.template_file.vault_configuration.rendered
-    file    = "/vault/config/server.hcl"
+    file    = "/vault/config/main.hcl"
   }
 }
 
