@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-export terraform_version="0.12.26"
+mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 # Download and install Terraform
 curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
@@ -12,10 +12,8 @@ rm -f "$HOME"/terraform.zip
 # git clone https://github.com/brianshumate/vss.git
 
 # Set up Terraform configuration the hard way...
-mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
-
-cat > $HOME/vtl/main.tf << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
