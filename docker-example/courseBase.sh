@@ -9,12 +9,13 @@ mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 # Download and install Terraform
 curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
-rm -f /home/scrapbook/tutorial/terraform.zip
+rm -f /home/scrapbook/tutorial/terraform.zip && \
 
 # Download and install Vault
 curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
-rm -f /home/scrapbook/tutorial/vault.zip
+rm -f /home/scrapbook/tutorial/vault.zip && \
+touch /home/scrapbook/tutorial/install_complete
 
 # Set up Terraform configuration the hard way...
 
