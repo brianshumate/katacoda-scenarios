@@ -34,9 +34,8 @@
   "assets": {
     "client": [
       {
-        "file": "reset.sh",
-        "target": "/root/.bin",
-        "chmod": "+x"
+        "file": "vtl",
+        "target": "/home/scrapbook/tutorial"
       }
     ]
   },

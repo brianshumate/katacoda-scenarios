@@ -6,10 +6,10 @@ The first step in this lab is to use `terraform` to start the containers. This i
 2. Define plan
 3. Apply plan
 
-Begin by changing into the `vss` project directory.
+Begin by changing into the `vtl` project directory.
 
 ```
-cd vss
+cd vtl
 ```{{execute T1}}
 
 Next, initialize the Terraform configuration.
@@ -47,14 +47,14 @@ Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 You can confirm the container status with `docker ps` like this.
 
 ```
-docker ps -f name=vss --format "table {{.Names}}\t{{.Status}}"
+docker ps -f name=vtl --format "table {{.Names}}\t{{.Status}}"
 ```{{execute T1}}
 
 Expected output should resemble this example.
 
 ```
 NAMES               STATUS
-vss-vault           Up 2 minutes (unhealthy)
-vss-telegraf        Up 2 minutes
-vss-splunk          Up 2 minutes (healthy)
+vtl-vault           Up 2 minutes (unhealthy)
+vtl-telegraf        Up 2 minutes
+vtl-splunk          Up 2 minutes (healthy)
 ```
