@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-cd vss || printf 2> "oh noes"
+
+cd /home/scrapbook/tutorial/vtl || printf 2> "oh noes"

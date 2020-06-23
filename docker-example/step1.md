@@ -4,25 +4,21 @@ The first step in this lab is to use Terraform to start the containers.
 
 This is done with 3 `terraform` commands, which accomplish the following tasks:
 
-1. Initialize configuration
-2. Define plan
-3. Apply plan
+1. Initialize the Terraform configuration
+2. Define a plan
+3. Apply the defined plan
 
 Once the plan is complete, the infrastructure will be fully configured and ready to go.
 
-Begin by changing into the `vtl` project directory.
+You are currently in the `vtl` project directory. All commands used in the terminal will expect you to execute them from this directory.
 
-```
-cd vtl
-```{{execute T1}}
-
-Next, initialize the Terraform configuration.
+Begin by initializing the Terraform configuration.
 
 ```
 terraform init
 ```{{execute T1}}
 
-Successful output should include the message **Terraform has been successfully initialized!**.
+Successful output includes the message **Terraform has been successfully initialized!**.
 
 Now you can define a plan file with the filename `vault-metrics-lab.plan`.
 

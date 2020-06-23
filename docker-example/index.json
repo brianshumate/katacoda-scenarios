@@ -7,19 +7,23 @@
     "steps": [
       {
         "title": "Start containers",
-        "text": "step1.md"
+        "text": "step1.md",
+        "code": "terminal.sh"
       },
       {
         "title": "Initialize and unseal Vault",
-        "text": "step2.md"
+        "text": "step2.md",
+        "code": "terminal.sh"
       },
       {
         "title": "Perform actions to generate metrics",
-        "text": "step3.md"
+        "text": "step3.md",
+        "code": "terminal.sh"
       },
       {
         "title": "Analyze generated metrics",
-        "text": "step4.md"
+        "text": "step4.md",
+        "code": "terminal.sh"
       }
     ],
     "intro": {
