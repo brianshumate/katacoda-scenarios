@@ -1,4 +1,3 @@
-
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
 The first step in this lab is to use `terraform` to start the containers. This is done with 3 terraform commands to accomplish the following tasks:
@@ -39,8 +38,23 @@ Finally, if everything appears to be okay, apply the plan from the file.
 terraform apply vault-metrics-lab.plan
 ```{{execute T1}}
 
-If all goes according to plan, you should observe this in the successful output.
+If all goes according to plan and after roughly 3 minutes of time has elapsed, you should observe a message like this in the output.
 
 ```
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+```
+
+You can confirm the container status with `docker ps` like this.
+
+```
+docker ps -f name=vss --format "table {{.Names}}\t{{.Status}}"
+```{{execute T1}}
+
+Expected output should resemble this example.
+
+```
+NAMES               STATUS
+vss-vault           Up 2 minutes (unhealthy)
+vss-telegraf        Up 2 minutes
+vss-splunk          Up 2 minutes (healthy)
 ```
