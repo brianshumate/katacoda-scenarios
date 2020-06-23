@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2143
-if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -qw healthy) ]]
+if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -w healthy) ]]
 then
   echo "Vault server is healthy"
 else
@@ -8,7 +8,7 @@ else
 fi
 
 
-if [[ $(docker exec vtl-vault vault status | grep -qw Initialized | grep -qw true) ]]
+if [[ $(docker exec vtl-vault vault status | grep -qw Initialized | grep -w true) ]]
 then
   echo "Vault server is initialized"
 else

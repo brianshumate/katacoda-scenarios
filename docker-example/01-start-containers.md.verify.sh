@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2143
-if [[ $(docker ps -f name=vtl-splunk --format "{{.Status}}" | grep -qw healthy) ]]
+if [[ $(docker ps -f name=vtl-splunk --format "{{.Status}}" | grep -w healthy) ]]
 then
   echo "done"
 else
-  echo "Splunk container is not healthy. Please ensure it is healthy before continuing."
+  echo "Splunk container is not healthy. Please ensure it is up and healthy before continuing."
 fi

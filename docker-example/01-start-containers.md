@@ -43,7 +43,7 @@ terraform apply vault-metrics-lab.plan
 If all goes according to plan, you should observe a message like this in the output.
 
 ```
-Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
 You can confirm the container status with `docker ps` like this.
