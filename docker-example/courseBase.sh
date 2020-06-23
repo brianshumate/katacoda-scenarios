@@ -177,11 +177,11 @@ resource "docker_container" "vault" {
     name         = "vtl-network"
     ipv4_address = "10.42.10.102"
   }
-  # ports {
-  #   internal = "8200"
-  #   external = "8200"
-  #   protocol = "tcp"
-  # }
+  ports {
+    internal = "8200"
+    external = "8200"
+    protocol = "tcp"
+  }
   upload {
     content = data.template_file.vault_configuration.rendered
     file    = "/vault/config/main.hcl"
