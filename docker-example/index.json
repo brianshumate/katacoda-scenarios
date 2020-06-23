@@ -32,7 +32,7 @@
     }
   },
   "assets": {
-    "client": [
+    "host01": [
       {
         "file": "main.tf",
         "target": "/home/scrapbook/tutorial/vtl/"
