@@ -34,8 +34,20 @@
   "assets": {
     "client": [
       {
-        "file": "vtl/*",
-        "target": "/home/scrapbook/tutorial/vtl"
+        "file": "vtl/main.tf",
+        "target": "/home/scrapbook/tutorial/vtl/"
+      },
+      {
+        "file": "vtl/config/default.yml",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "vtl/config/telegraf.conf",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "vtl/config/vault.hcl",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
       }
     ]
   },

@@ -10,4 +10,5 @@ unzip -d  /usr/local/bin/ "$HOME"/terraform.zip && \
 # Clone repository
 # git clone https://github.com/brianshumate/vss.git
 
-mkdir /home/scrapbook/tutorial/vtl
+# Set up Terraform configuration
+mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
