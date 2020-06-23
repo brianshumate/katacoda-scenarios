@@ -61,7 +61,7 @@ vtl-telegraf        Up 2 minutes
 vtl-splunk          Up 2 minutes (healthy)
 ```
 
-The vtl-splunk container should have a **healthy** status before proceeding to step 2.
+The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, wait a bit and check again.
 
 > **NOTE:** Vault is expected to be unhealthy when it is not yet unsealed; in this case, you have yet to initialize or unseal Vault, so the status is correct.
 

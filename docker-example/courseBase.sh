@@ -26,7 +26,7 @@ done
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
-cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
+cat > /home/scrapbook/tutorial/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
@@ -66,7 +66,7 @@ variable "splunk_ip" {
 
 terraform {
   backend "local" {
-    path = "tfstate/terraform.tfstate"
+    path = "${path.cwd}/vtl/tfstate/terraform.tfstate"
   }
 }
 
@@ -101,7 +101,7 @@ resource "docker_container" "splunk" {
   image = docker_image.splunk.latest
   env   = ["SPLUNK_START_ARGS=--accept-license", "SPLUNK_PASSWORD=vtl-password"]
   upload {
-    content = (file("${path.cwd}/config/default.yml"))
+    content = (file("${path.cwd}/vtl/config/default.yml"))
     file    = "/tmp/defaults/default.yml"
   }
   ports {
@@ -121,7 +121,7 @@ resource "docker_container" "splunk" {
 
 data "template_file" "telegraf_configuration" {
   template = file(
-    "${path.cwd}/config/telegraf.conf",
+    "${path.cwd}/vtl/config/telegraf.conf",
   )
 }
 
@@ -148,7 +148,7 @@ resource "docker_container" "telegraf" {
 # -----------------------------------------------------------------------
 
 data "template_file" "vault_configuration" {
-  template = (file("${path.cwd}/config/vault.hcl"))
+  template = (file("${path.cwd}/vtl/config/vault.hcl"))
 }
 
 resource "docker_image" "vault" {
