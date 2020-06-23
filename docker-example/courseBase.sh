@@ -4,8 +4,6 @@
 export terraform_version="0.12.26"
 export vault_version="1.4.2"
 
-mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
-
 # Download and install Terraform
 curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
@@ -25,6 +23,8 @@ while [ "$installed" = 0 ]; do
     export installed=1
   fi
 done
+
+mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
 # =======================================================================
