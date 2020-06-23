@@ -4,9 +4,9 @@
 export terraform_version="0.12.26"
 
 # Download and install Terraform
-curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
-rm -f /home/scrapbook/tutorial/terraform.zip || \
+curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
+unzip -d  /usr/local/bin/ "$HOME"/terraform.zip && \
+rm -f "$HOME"/terraform.zip || \
 printf 2>&1 "Could not get Terraform." && \
 exit 1
 
@@ -17,7 +17,7 @@ exit 1
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 
-cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
+cat > "$HOME"/vtl/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
@@ -167,7 +167,7 @@ resource "docker_container" "vault" {
 
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/default.yml << 'EOF'
+cat > "$HOME"/vtl/config/default.yml << 'EOF'
 ---
 ansible_connection: local
 ansible_environment: {}
@@ -336,10 +336,10 @@ wait_for_splunk_retry_num: 60
 EOF
 
 
-cat > /home/scrapbook/tutorial/vtl/config/default.yml << EOF
+cat > "$HOME"/vtl/config/default.yml << EOF
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
+cat > "$HOME"/vtl/config/telegraf.conf << 'EOF'
 # VSS Telegraf Configuration
 
 [global_tags]
@@ -396,7 +396,7 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/main.hcl << 'EOF'
+cat > "$HOME"/vtl/config/main.hcl << 'EOF'
 log_level = "trace"
 ui        = true
 
