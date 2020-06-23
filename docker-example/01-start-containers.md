@@ -10,7 +10,7 @@ This is done with 3 `terraform` commands, which accomplish the following tasks:
 
 Once the plan is complete, the infrastructure will be fully configured and ready to go.
 
-You are currently in the `vtl` project directory. All commands used in the terminal will expect you to execute them from this directory.
+You are currently in the vtl project directory, `/home/scrapbook/tutorial`. All commands used in the terminal will expect you to execute them from this directory.
 
 Begin by initializing the Terraform configuration.
 

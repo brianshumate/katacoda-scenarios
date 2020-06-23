@@ -66,7 +66,7 @@ variable "splunk_ip" {
 
 terraform {
   backend "local" {
-    path = "${path.cwd}/vtl/tfstate/terraform.tfstate"
+    path = "/home/scrapbook/tutorial/vtl/tfstate/terraform.tfstate"
   }
 }
 
