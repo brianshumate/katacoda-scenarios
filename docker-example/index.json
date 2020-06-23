@@ -46,7 +46,7 @@
     "hideintro": false,
     "hidefinish": false,
     "showdashboard": true,
-    "dashboards": [{"name": "Splunk Web", "port": "8000"}]
+    "dashboards": [{"name": "Splunk Web", "href": "http://0.0.0.0:8000"}]
   },
   "backend": {
     "imageid": "docker"
