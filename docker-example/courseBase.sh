@@ -74,9 +74,9 @@ provider "docker" {
 # Custom network
 # -----------------------------------------------------------------------
 resource "docker_network" "vtl_network" {
-  name = "vtl_network"
-  attachable = true
-  ipam_config [subnet = "10.42.10.0/24"]
+  name        = "vtl_network"
+  attachable  = true
+  ipam_config = { subnet = "10.42.10.0/24" }
 }
 
 # -----------------------------------------------------------------------
