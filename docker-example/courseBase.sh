@@ -17,7 +17,7 @@ exit 1
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 
-cat > "$HOME"/vtl/main.tf << 'EOF'
+cat > $HOME/vtl/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
@@ -167,7 +167,7 @@ resource "docker_container" "vault" {
 
 EOF
 
-cat > "$HOME"/vtl/config/default.yml << 'EOF'
+cat > $HOME/vtl/config/default.yml << 'EOF'
 ---
 ansible_connection: local
 ansible_environment: {}
@@ -336,10 +336,10 @@ wait_for_splunk_retry_num: 60
 EOF
 
 
-cat > "$HOME"/vtl/config/default.yml << EOF
+cat > $HOME/vtl/config/default.yml << EOF
 EOF
 
-cat > "$HOME"/vtl/config/telegraf.conf << 'EOF'
+cat > $HOME/vtl/config/telegraf.conf << 'EOF'
 # VSS Telegraf Configuration
 
 [global_tags]
@@ -396,7 +396,7 @@ cat > "$HOME"/vtl/config/telegraf.conf << 'EOF'
 
 EOF
 
-cat > "$HOME"/vtl/config/main.hcl << 'EOF'
+cat > $HOME/vtl/config/main.hcl << 'EOF'
 log_level = "trace"
 ui        = true
 
