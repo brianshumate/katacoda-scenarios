@@ -166,15 +166,15 @@ resource "docker_container" "vault" {
     start_period = "10s"
     retries      = 2
   }
-  ports {
-    internal = "8200"
-    external = "8200"
-    protocol = "tcp"
-  }
   networks_advanced {
     name         = "vtl-network"
     ipv4_address = "10.42.10.102"
   }
+  # ports {
+  #   internal = "8200"
+  #   external = "8200"
+  #   protocol = "tcp"
+  # }
   upload {
     content = data.template_file.vault_configuration.rendered
     file    = "/vault/config/main.hcl"
