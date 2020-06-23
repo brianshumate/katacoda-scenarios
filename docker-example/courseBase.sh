@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
+export terraform_version="0.12.26"
+
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 # Download and install Terraform
-curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
+curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
 rm -f /home/scrapbook/tutorial/terraform.zip
 
