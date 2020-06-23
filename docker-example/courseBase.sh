@@ -15,9 +15,16 @@ rm -f /home/scrapbook/tutorial/terraform.zip && \
 curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
 rm -f /home/scrapbook/tutorial/vault.zip && \
-touch /home/scrapbook/tutorial/install_complete
+touch /home/scrapbook/tutorial/1
 
-# Set up Terraform configuration the hard way...
+# Set up Terraform configuration the hard way after binaries are installed...
+export installed=0
+
+while [ "$installed" = 0 ]; do
+  if [ -f /home/scrapbook/tutorial/1 ]; then
+    export installed=1
+  fi
+done
 
 cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
 # =======================================================================
