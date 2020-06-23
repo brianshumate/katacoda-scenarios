@@ -81,7 +81,7 @@ resource "docker_container" "splunk" {
   image = docker_image.splunk.latest
   env   = ["SPLUNK_START_ARGS=--accept-license", "SPLUNK_PASSWORD=vtl-password"]
   upload {
-    content = file("${path.cwd}/config/default.yml")
+    content = (file("${path.cwd}/config/default.yml"))
     file    = "/tmp/defaults/default.yml"
   }
   ports {
@@ -124,7 +124,7 @@ resource "docker_container" "telegraf" {
 # -----------------------------------------------------------------------
 
 data "template_file" "vault_configuration" {
-  template = file("${path.cwd}/config/vault.hcl")
+  template = (file("${path.cwd}/config/vault.hcl"))
   vars = {
     telegraf_address = "${docker_container.telegraf.ip_address}"
   }
@@ -331,10 +331,6 @@ splunkbase_password: null
 splunkbase_token: null
 splunkbase_username: null
 wait_for_splunk_retry_num: 60
-EOF
-
-
-cat > /home/scrapbook/tutorial/vtl/config/default.yml << EOF
 EOF
 
 cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
