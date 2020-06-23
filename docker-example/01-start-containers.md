@@ -34,7 +34,7 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, if everything appears to be okay, apply the plan from the file.
 
-> **NOTE: The apply process will require a few minutes time to complete.* After you apply the plan, it would be a great moment to grab a fresh beverage or take a short break.
+> **NOTE: The apply process will require a few minutes time to complete.** After you apply the plan, it would be a great moment to grab a fresh beverage or take a short break.
 
 ```
 terraform apply vault-metrics-lab.plan

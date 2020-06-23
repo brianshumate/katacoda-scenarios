@@ -8,7 +8,7 @@
       {
         "title": "Start containers",
         "text": "01-start-containers.md",
-        "code": "terminal.sh",
+        "code": "01-start-containers.terminal.sh",
         "verify": "01-start-containers.md.verify.sh"
       },
       {
