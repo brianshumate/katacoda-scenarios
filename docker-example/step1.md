@@ -38,7 +38,7 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, if everything appears to be okay, apply the plan from the file.
 
-> NOTE:** The apply process will require a few minutes time to complete, so after you apply the plan, it would be a great moment to grab a fresh beverage or take a short break!
+> **NOTE:** The apply process will require a few minutes time to complete, so after you apply the plan, it would be a great moment to grab a fresh beverage or take a short break!
 
 ```
 terraform apply vault-metrics-lab.plan
@@ -56,7 +56,7 @@ You can confirm the container status with `docker ps` like this.
 docker ps -f name=vtl --format "table {{.Names}}\t{{.Status}}"
 ```{{execute T1}}
 
-Expected output should resemble this example.
+Output should resemble this example.
 
 ```
 NAMES               STATUS
@@ -64,3 +64,6 @@ vtl-vault           Up 2 minutes (unhealthy)
 vtl-telegraf        Up 2 minutes
 vtl-splunk          Up 2 minutes (healthy)
 ```
+
+> **NOTE:** Vault is expected to be unhealthy when it is not yet unsealed; in this case, you have yet to initialize or unseal Vault, so the status is correct.
+

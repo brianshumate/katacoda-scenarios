@@ -4,6 +4,12 @@ The default initialization without arguments results in Vault using the [Shamir'
 
 For this example, you can use just one key share to speed up the manual unseal process.
 
+First, export a valid `VAULT_ADDR` environment variable that has the Vault server URL with host+port as its value.
+
+```
+export VAULT_ADDR=http://127.0.0.1:8200
+```
+
 ```
 vault operator init -key-shares=1 -key-threshold=1
 ```{{execute T1}}

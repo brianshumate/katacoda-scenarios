@@ -2,6 +2,7 @@
 # shellcheck disable=SC2016
 
 export terraform_version="0.12.26"
+export vault_version="1.4.2"
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
@@ -10,8 +11,10 @@ curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
 rm -f /home/scrapbook/tutorial/terraform.zip
 
-# Clone repository
-# git clone https://github.com/brianshumate/vss.git
+# Download and install Vault
+curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
+unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
+rm -f /home/scrapbook/tutorial/vault.zip
 
 # Set up Terraform configuration the hard way...
 
@@ -68,6 +71,15 @@ provider "docker" {
 }
 
 # -----------------------------------------------------------------------
+# Custom network
+# -----------------------------------------------------------------------
+resource "docker_network" "vtl_network" {
+  name = "vtl_network"
+  attachable = true
+  ipam_config [subnet = "10.42.10.0/24"]
+}
+
+# -----------------------------------------------------------------------
 # Splunk resources
 # -----------------------------------------------------------------------
 
@@ -89,7 +101,10 @@ resource "docker_container" "splunk" {
     external = "8000"
     protocol = "tcp"
   }
-
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.100"
+  }
 }
 
 # -----------------------------------------------------------------------
@@ -113,6 +128,10 @@ resource "docker_image" "telegraf" {
 resource "docker_container" "telegraf" {
   name  = "vtl-telegraf"
   image = docker_image.telegraf.latest
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.101"
+  }
   upload {
     content = data.template_file.telegraf_configuration.rendered
     file    = "/etc/telegraf/telegraf.conf"
@@ -156,6 +175,10 @@ resource "docker_container" "vault" {
     internal = "8200"
     external = "8200"
     protocol = "tcp"
+  }
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.102"
   }
   upload {
     content = data.template_file.vault_configuration.rendered
