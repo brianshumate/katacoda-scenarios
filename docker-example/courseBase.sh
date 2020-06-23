@@ -394,7 +394,7 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/main.hcl << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/config/vault.hcl << 'EOF'
 log_level = "trace"
 ui        = true
 

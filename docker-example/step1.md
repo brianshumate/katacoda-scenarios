@@ -1,10 +1,14 @@
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
-The first step in this lab is to use `terraform` to start the containers. This is done with 3 terraform commands to accomplish the following tasks:
+The first step in this lab is to use Terraform to start the containers.
+
+This is done with 3 `terraform` commands, which accomplish the following tasks:
 
 1. Initialize configuration
 2. Define plan
 3. Apply plan
+
+Once the plan is complete, the infrastructure will be fully configured and ready to go.
 
 Begin by changing into the `vtl` project directory.
 
