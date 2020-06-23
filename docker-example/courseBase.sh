@@ -6,9 +6,7 @@ export terraform_version="0.12.26"
 # Download and install Terraform
 curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ "$HOME"/terraform.zip && \
-rm -f "$HOME"/terraform.zip || \
-printf 2>&1 "Could not get Terraform." && \
-exit 1
+rm -f "$HOME"/terraform.zip
 
 # Clone repository
 # git clone https://github.com/brianshumate/vss.git
