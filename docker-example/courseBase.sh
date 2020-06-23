@@ -2,7 +2,7 @@
 # shellcheck disable=SC2016
 
 export terraform_version="0.12.26"
-export scenario_home="/home/scrapbook/tutorial"
+
 # Download and install Terraform
 curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/"$terraform_version"/terraform_"$terraform_version"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ "$HOME"/terraform.zip && \
@@ -12,10 +12,10 @@ rm -f "$HOME"/terraform.zip
 # git clone https://github.com/brianshumate/vss.git
 
 # Set up Terraform configuration the hard way...
-mkdir -p "$scenario_home"/vtl/{config,tfstate}
+mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 
-cat > "$scenario_home"/vtl/main.tf << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
@@ -165,7 +165,7 @@ resource "docker_container" "vault" {
 
 EOF
 
-cat > "$scenario_home"/vtl/config/default.yml << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/config/default.yml << 'EOF'
 ---
 ansible_connection: local
 ansible_environment: {}
@@ -334,10 +334,10 @@ wait_for_splunk_retry_num: 60
 EOF
 
 
-cat > "$scenario_home"/vtl/config/default.yml << EOF
+cat > /home/scrapbook/tutorial/vtl/config/default.yml << EOF
 EOF
 
-cat > "$scenario_home"/vtl/config/telegraf.conf << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 # VSS Telegraf Configuration
 
 [global_tags]
@@ -394,7 +394,7 @@ cat > "$scenario_home"/vtl/config/telegraf.conf << 'EOF'
 
 EOF
 
-cat > "$scenario_home"/vtl/config/main.hcl << 'EOF'
+cat > /home/scrapbook/tutorial/vtl/config/main.hcl << 'EOF'
 log_level = "trace"
 ui        = true
 
