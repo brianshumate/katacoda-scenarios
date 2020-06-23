@@ -116,9 +116,6 @@ data "template_file" "telegraf_configuration" {
   template = file(
     "${path.cwd}/config/telegraf.conf",
   )
-  vars = {
-    splunk_address = "${docker_container.splunk.ip_address}"
-  }
 }
 
 resource "docker_image" "telegraf" {
@@ -145,9 +142,6 @@ resource "docker_container" "telegraf" {
 
 data "template_file" "vault_configuration" {
   template = (file("${path.cwd}/config/vault.hcl"))
-  vars = {
-    telegraf_address = "${docker_container.telegraf.ip_address}"
-  }
 }
 
 resource "docker_image" "vault" {
@@ -386,7 +380,7 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 # An output plugin that can transmit metrics over HTTP to Splunk
 # You must specify a valid Splunk HEC token as the Authorization value
 [[outputs.http]]
-  url = "http://${splunk_address}:8088/services/collector"
+  url = "http://10.42.10.100:8088/services/collector"
   data_format="splunkmetric"
   splunkmetric_hec_routing=true
   [outputs.http.headers]
@@ -428,7 +422,7 @@ listener "tcp" {
 }
 
 telemetry {
-  dogstatsd_addr                 = "${telegraf_address}:8125"
+  dogstatsd_addr                 = "10.42.10.101:8125"
   enable_hostname_label          = true
   disable_hostname               = true
   enable_high_cardinality_labels = "*"
