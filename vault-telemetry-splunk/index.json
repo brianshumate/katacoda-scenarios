@@ -1,0 +1,76 @@
+{
+  "title": "[DRAFT] Vault Telemetry with Splunk",
+  "description": "Discover Vault telemetry metrics in Splunk",
+  "private": true,
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Start and containers",
+        "text": "01-start-containers.md",
+        "code": "01-start-containers.terminal.sh",
+        "verify": "01-start-containers.md.verify.sh"
+      },
+      {
+        "title": "Initialize and unseal Vault",
+        "text": "02-initialize-and-unseal-vault.md",
+        "code": "02-initialize-and-unseal-vault.terminal.sh",
+        "verify": "02-initialize-and-unseal-vault.md.verify.sh"
+      },
+      {
+        "title": "Perform actions to generate metrics",
+        "text": "03-perform-actions-to-generate-metrics.md",
+        "code": "03-perform-actions-to-generate-metrics.terminal.sh",
+        "verify": "03-perform-actions-to-generate-metrics.md.verify.sh"
+      },
+      {
+        "title": "Analyze generated metrics",
+        "text": "04-analyze-generated-metrics.md",
+        "code": "04-analyze-generated-metrics.terminal.sh",
+        "verify": "04-analyze-generated-metrics.md.verify.sh"
+      }
+    ],
+    "intro": {
+      "courseData": "courseBase.sh",
+      "text": "intro.md",
+      "credits": "Brian Shumate"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "assets": {
+    "host01": [
+      {
+        "file": "main.tf",
+        "target": "/home/scrapbook/tutorial/vtl/"
+      },
+      {
+        "file": "default.yml",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "telegraf.conf",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "vault.hcl",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal-iframe",
+    "uimessage1": "\u001b[32mVault Telemetry Lab→ \u001b[m\r\n",
+    "hideintro": false,
+    "hidefinish": false,
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["/home/scrapbook/tutorial/vtl/.terraform/*"],
+    "showdashboard": true,
+    "dashboards": [{"name": "Splunk Web", "href": "http://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"}]
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
