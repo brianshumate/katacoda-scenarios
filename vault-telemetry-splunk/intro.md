@@ -13,4 +13,4 @@ Specifically, you will do the following while working through this scenario:
 1. **Perform actions to generate metrics** - Vault will generate some runtime metrics even in an uninitialized and sealed state, but you can use this step to generate additional interesting metrics that you can then check out in Splunk.
 1. **Analyze generated metrics** - Use Splunk Web to analyze, search, and visualize your Vault telemetry metrics.
 
-Click **Continue** to get started!
+Click **START SCENARIO** to get started!
