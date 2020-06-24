@@ -61,10 +61,8 @@ vtl-telegraf        Up 2 minutes
 vtl-splunk          Up 2 minutes (healthy)
 ```
 
-The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, wait a bit and check again.
-
-Once your vtl-splunk container has a healthy status, you can access [Splunk Web](http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com/) into a separate browser tab.
+The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, wait a bit and check again until the status is **healthy**.
 
 > **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have yet to initialized or unsealed Vault, so the status is correct and expected.
 
-Click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to to begin using it.
+Once your vtl-splunk container has a healthy status, click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to to begin using it.
