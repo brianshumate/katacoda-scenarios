@@ -9,7 +9,7 @@ if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -w healthy) ]]
 fi
 
 
-if [[ $(vault status -format=json | jq -r '.initialized' | grep -qw true) ]]
+if [[ $(vault status -format=json | jq -r '.initialized' | grep -q true) ]]
   then
     echo "Vault server is initialized"
   else
@@ -17,7 +17,7 @@ if [[ $(vault status -format=json | jq -r '.initialized' | grep -qw true) ]]
 fi
 
 
-if [[ $(vault token lookup -format=json | jq -r '.data.policies[0]' | grep -qw root) ]]
+if [[ $(vault token lookup -format=json | jq -r '.data.policies[0]' | grep -q root) ]]
   then
     echo "Vault token contains root policy"
   else
