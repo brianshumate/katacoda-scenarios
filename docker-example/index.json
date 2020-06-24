@@ -14,19 +14,19 @@
       {
         "title": "Initialize and unseal Vault",
         "text": "02-initialize-and-unseal-vault.md",
-        "code": "terminal.sh",
+        "code": "02-initialize-and-unseal-vault.terminal.sh",
         "verify": "02-initialize-and-unseal-vault.md.verify.sh"
       },
       {
         "title": "Perform actions to generate metrics",
         "text": "03-perform-actions-to-generate-metrics.md",
-        "code": "terminal.sh",
+        "code": "03-perform-actions-to-generate-metrics.terminal.sh",
         "verify": "03-perform-actions-to-generate-metrics.md.verify.sh"
       },
       {
         "title": "Analyze generated metrics",
         "text": "04-analyze-generated-metrics.md",
-        "code": "terminal.sh",
+        "code": "04-analyze-generated-metrics.terminal.sh",
         "verify": "04-analyze-generated-metrics.md.verify.sh"
       }
     ],

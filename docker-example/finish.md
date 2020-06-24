@@ -1,1 +1,4 @@
-You've completed your first Katacoda scenario!
+## 🎉
+
+You've completed this scenario!
+

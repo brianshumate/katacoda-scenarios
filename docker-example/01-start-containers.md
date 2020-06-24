@@ -20,7 +20,7 @@ terraform init
 
 Successful output includes the message **Terraform has been successfully initialized!**.
 
-Now you can define a plan file with the filename `vault-metrics-lab.plan`.
+Now, define a plan file with the filename `vault-metrics-lab.plan`.
 
 ```
 terraform plan -out vault-metrics-lab.plan
@@ -56,13 +56,13 @@ Output should resemble this example.
 
 ```
 NAMES               STATUS
-vtl-vault           Up 2 minutes (unhealthy)
+vtl-splunk          Up About a minute (healthy)
+vtl-vault           Up About a minute (unhealthy)
 vtl-telegraf        Up 2 minutes
-vtl-splunk          Up 2 minutes (healthy)
 ```
 
 The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, wait a bit and check again until the status is **healthy**.
 
-> **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have yet to initialized or unsealed Vault, so the status is correct and expected.
+> **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
 
-Once your vtl-splunk container has a healthy status, click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to to begin using it.
+Once your vtl-splunk container has a healthy status, click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to begin using it.
