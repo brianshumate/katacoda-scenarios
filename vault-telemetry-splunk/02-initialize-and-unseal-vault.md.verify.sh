@@ -5,21 +5,21 @@ if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -w healthy) ]]
   then
     echo "Vault server is healthy"
   else
-    echo "Vault server container is not healthy. Please ensure it is healthy, and that you have initialized and unsealed it before continuing."
+    >&2 echo "Vault server container is not healthy. Please ensure it is healthy, and that you have initialized and unsealed it before continuing."
 fi
 
 
-if [[ $(vault status | grep -qw "Initialized     true") ]]
+if [[ $(vault status -format=json | jq -r '.initialized' | grep -qw true) ]]
   then
     echo "Vault server is initialized"
   else
-    echo "Vault server is not initialized. Please initialize it, unseal it, and login before continuing."
+    >&2 echo "Vault server is not initialized. Please initialize it, unseal it, and login before continuing."
 fi
 
 
-if [[ $(vault token lookup | grep -w policies | grep -q root) ]]
+if [[ $(vault token lookup -format=json | jq -r '.data.policies[0]' | grep -qw root) ]]
   then
-    echo "Vault server is initialized"
+    echo "Vault token contains root policy"
   else
-    echo "Vault server is not initialized. Please initialize it, unseal it, and login before continuing."
+    >&2 echo "Vault token does not contain root policy; you need to login with the initial root token before continuing."
 fi
