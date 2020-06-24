@@ -6,19 +6,23 @@ For this example, you can use just one key share to speed up the manual unseal p
 
 > **NOTE**: You might have noticed that when this step began, a `VAULT_ADDR` environment variable was exported to a URL that represents the Vault docker container. This is done to ensure your commands address the correct server.
 
-Proceed to initializing Vault with 1 key share and a key threshold of 1.
+First, initialize Vault with 1 key share and a key threshold of 1.
 
 ```
 vault operator init -key-shares=1 -key-threshold=1
 ```{{execute T1}}
 
-Successful output from initialization begins with an Unseal Key 1 and Initial Root Token. These values are used for the following steps.
+Successful output from initialization begins with an **Unseal Key 1** and **Initial Root Token** value.
+
+Those values are used for the following steps.
+
+Next, copy the the value of Unseal Key 1, and use the `vault operator unseal` command to unseal Vault. Paste the Unseal Key 1 value when prompted.
 
 ```
 vault operator unseal
 ```{{execute T1}}
 
-Successful output from unsealing resembles this example:
+Successful output from unsealing Vault resembles this example:
 
 ```
 Unseal Key (will be hidden):
@@ -35,7 +39,7 @@ Cluster ID      5ba3f55d-f18e-2bf6-2313-61f1a349abaa
 HA Enabled      false
 ```
 
-Finally, you are ready to login to Vault.
+Finally, you can login to Vault with `vault login`.
 
 Copy the value of **Initial Root Token** from the initialization output, and paste it when prompted.
 

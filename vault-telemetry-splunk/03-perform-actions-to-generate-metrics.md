@@ -4,59 +4,66 @@ This step will have you generating some new data in Vault and as a result, new t
 
 ## Static K/V secrets
 
-Enable a K/V version 2 secrets engine.
+You can generate some secrets with an incrementally increasing count to produce telemetry metrics for later analysis. For commands which will produce a great deal of output, the output is sent to a log file to keep the terminal uncluttered.
+
+Enable a K/V version 2 secrets engine to begin.
 
 ```
 vault secrets enable -version=2 kv
 ```{{execute T1}}
 
-Generate 10 secrets.
+Now, generate 10 secrets.
 
 ```
 for i in {1..10}
   do
-    vault kv put kv/$i-secret foo=bar
+    vault kv put kv/$i-secret foo=bar > 10-secrets.log 2>&1
 done
 ```{{execute T1}}
 
-Generate 25 secrets / update first 10 secrets.
+Next, generate 25 secrets and update first 10 secrets.
 
 ```
 for i in {1..25}
   do
-    vault kv put kv/$i-secret foo=bar
+    vault kv put kv/$i-secret foo=bar > 25-secrets.log 2>&1
 done
 ```{{execute T1}}
 
-Generate 50 secrets / update first 35 secrets.
+Finally, generate 50 secrets and update first 35 secrets.
 
 ```
 for i in {1..50}
   do
-    vault kv put kv/$i-secret foo=bar
+    vault kv put kv/$i-secret foo=bar > 35-secrets.log 2>&1
 done
 ```{{execute T1}}
 
-## Tokens
+## Tokens & Leases
 
-Enable a userpass auth method.
+Now enable a username and password (userpass) auth method and login with it to generate some tokens and leases.
+
+First, enable the auth method.
 
 ```
 vault auth enable userpass
 ```{{execute T1}}
 
-Add a learner user.
+Next, add a learner user with the password **p@ssw0rd**.
 
 ```
 vault write auth/userpass/users/learner password=p@ssw0rd
 ```{{execute T1}}
 
-Login 10 times as the learner user.
+Now, login to Vault 10 times as the learner user.
 
 ```
 for i in {1..10}
   do
-    vault login -method=userpass username=learner password=p@ssw0rd
+    vault login \
+      -method=userpass \
+      username=learner \
+      password=p@ssw0rd > 10-userpass.log 2>&1
 done
 ```{{execute T1}}
 
@@ -65,7 +72,10 @@ Login 25 times as the learner user.
 ```
 for i in {1..25}
   do
-    vault login -method=userpass username=learner password=p@ssw0rd
+    vault login \
+      -method=userpass \
+      username=learner \
+      password=p@ssw0rd > 25-userpass.log 2>&1
 done
 ```{{execute T1}}
 
@@ -75,6 +85,9 @@ Login 50 times as the learner user.
 ```
 for i in {1..50}
   do
-    vault login -method=userpass username=learner password=p@ssw0rd
+    vault login \
+      -method=userpass \
+      username=learner \
+      password=p@ssw0rd > 50-userpass.log 2>&1
 done
 ```{{execute T1}}
