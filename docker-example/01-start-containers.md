@@ -65,6 +65,6 @@ The vtl-splunk container should have a **healthy** status before proceeding to s
 
 Once your vtl-splunk container has a healthy status, you can access [Splunk Web](http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com/) into a separate browser tab.
 
-> **NOTE:** Vault is expected to be unhealthy when it is not yet unsealed; in this case, you have yet to initialize or unseal Vault, so the status is correct.
+> **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have yet to initialized or unsealed Vault, so the status is correct and expected.
 
 Click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to to begin using it.

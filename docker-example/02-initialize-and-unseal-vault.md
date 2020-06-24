@@ -4,23 +4,22 @@ The default initialization without arguments results in Vault using the [Shamir'
 
 For this example, you can use just one key share to speed up the manual unseal process.
 
-you can access the [Vault UI](http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com/) in a separate browser tab or export the address as an environment variable
+> **NOTE**:You might have noticed that when this step began, a proper `VAULT_ADDR` environment variable was set to a URL that represents the Vault docker container. This is done to ensure your commands address the correct server.
 
-First, export a valid `VAULT_ADDR` environment variable that has the Vault server URL with host+port as its value.
-
-```
-export VAULT_ADDR=http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com
-```
+Proceed to initializing Vault with 1 key share and a key threshold of 1.
 
 ```
 vault operator init -key-shares=1 -key-threshold=1
 ```{{execute T1}}
 
-Copy and paste unseal key and initial root token values when prompted to unseal Vault and login.
+
+Now, copy the unseal key from previous output, and paste it when prompted to unseal Vault.
 
 ```
 vault operator unseal
 ```{{execute T1}}
+
+Finally, you are ready to login; copy the initial root token value, and paste it when prompted.
 
 ```
 vault login
