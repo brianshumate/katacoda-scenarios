@@ -291,7 +291,7 @@ splunk:
             token: 42c0ff33-c00l-7374-87bd-690ac97efc50
             sourcetype: hashicorp_vault_telemetry
   home: /opt/splunk
-  http_enableSSL: false
+  http_enableSSL: true
   http_enableSSL_cert: null
   http_enableSSL_privKey: null
   http_enableSSL_privKey_password: null
