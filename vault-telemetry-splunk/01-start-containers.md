@@ -46,7 +46,7 @@ If all goes according to plan, you should observe a message like this in the out
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
-You can also confirm the container status with `docker ps` like this.
+You can then confirm the container status with `docker ps` like this.
 
 ```
 docker ps -f name=vtl --format "table {{.Names}}\t{{.Status}}"

@@ -1,6 +1,6 @@
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
-This step will have you generating some new data in Vault and as a result, new telemetry metrics in Splunk.
+This step will help guide you to generate new data in Vault and as a result, new telemetry metrics in Splunk.
 
 ## Static K/V secrets
 
