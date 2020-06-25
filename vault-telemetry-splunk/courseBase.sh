@@ -7,22 +7,18 @@ export vault_version="1.4.2"
 # Download and install Terraform
 curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
-rm -f /home/scrapbook/tutorial/terraform.zip && \
+chmod +x /usr/local/bin/terraform && \
+rm -f /home/scrapbook/tutorial/terraform.zip
+
+while [ ! -x /usr/local/bin/terraform ]; do sleep 1; done
 
 # Download and install Vault
 curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
 unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
-rm -f /home/scrapbook/tutorial/vault.zip && \
-touch /home/scrapbook/tutorial/1
+chmod +x /usr/local/bin/vault && \
+rm -f /home/scrapbook/tutorial/vault.zip
 
-# Set up Terraform configuration the hard way after binaries are installed...
-export installed=0
-
-while [ "$installed" = 0 ]; do
-  if [ -f /home/scrapbook/tutorial/1 ]; then
-    export installed=1
-  fi
-done
+while [ ! -x /usr/local/bin/vault ]; do sleep 1; done
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
@@ -293,6 +289,7 @@ splunk:
             index: vault-metrics
             indexes: vault-metrics
             token: 42c0ff33-c00l-7374-87bd-690ac97efc50
+            sourcetype: hashicorp_vault_telemetry
   home: /opt/splunk
   http_enableSSL: false
   http_enableSSL_cert: null
