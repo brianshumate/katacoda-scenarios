@@ -91,3 +91,12 @@ for i in {1..50}
       password=p@ssw0rd > 50-userpass.log 2>&1
 done
 ```{{execute T1}}
+
+Since you have been logging in with the username and password auth method, you are no longer logged in with the root token. Before continuing, login once again with the initial root token.
+
+```
+vault login -no-print \
+$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
+```{{execute T1}}
+
+Click **Continue** to proceed to step 4.
