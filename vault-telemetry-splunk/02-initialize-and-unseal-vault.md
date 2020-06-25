@@ -50,7 +50,7 @@ This command should produce no output when successful. If you want to confirm th
 
 ```
 vault token lookup | grep policies
-```
+```{{execute T1}}
 
 Successful output should contain the following.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2143
 
-if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -qw healthy) ]]
+if docker ps -f name=vtl-vault --format "{{.Status}}" | grep -q healthy
   then
     echo "done"
   else
@@ -9,7 +9,7 @@ if [[ $(docker ps -f name=vtl-vault --format "{{.Status}}" | grep -qw healthy) ]
 fi
 
 
-if [[ $(vault status -format=json | jq -r '.initialized' | grep -q true) ]]
+if vault status -format=json | jq -r '.initialized' | grep -q true
   then
     echo "done"
   else
@@ -17,7 +17,7 @@ if [[ $(vault status -format=json | jq -r '.initialized' | grep -q true) ]]
 fi
 
 
-if [[ $(vault token lookup -format=json | jq -r '.data.policies[0]' | grep -q root) ]]
+if vault token lookup -format=json | jq -r '.data.policies[0]' | grep -q root
   then
     echo "done"
   else
