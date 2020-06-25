@@ -1,6 +1,7 @@
 {
   "title": "Vault Initialization Lab",
   "description": "Initialize Vault in a variety of exciting ways with different choices and outcomes; you are the Vault initialization explorer!",
+  "private": true,
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
