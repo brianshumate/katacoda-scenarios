@@ -7,7 +7,7 @@
   "details": {
     "steps": [
       {
-        "title": "Start and containers",
+        "title": "Start containers",
         "text": "01-start-containers.md",
         "code": "01-start-containers.terminal.sh",
         "verify": "01-start-containers.md.verify.sh"
