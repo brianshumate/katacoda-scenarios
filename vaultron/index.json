@@ -1,0 +1,76 @@
+{
+  "title": "[DRAFT] Vaultron Lab",
+  "description": "Discover Vault with Vaultron",
+  "private": true,
+  "difficulty": "beginner",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Form Vaultron",
+        "text": "01-form-vaultron.md",
+        "code": "01-form-vaultron.terminal.sh",
+        "verify": "01-form-vaultron.md.verify.sh"
+      },
+      {
+        "title": "Define environment",
+        "text": "02-define-environment.md",
+        "code": "02-define-environment.terminal.sh",
+        "verify": "02-define-environment.md.verify.sh"
+      },
+      {
+        "title": "Blazing Sword",
+        "text": "03-blazing-sword.md",
+        "code": "03-blazing-sword.terminal.sh",
+        "verify": "03-blazing-sword.md.verify.sh"
+      },
+      {
+        "title": "Access Vault",
+        "text": "04-access-vault.md",
+        "code": "04-access-vault.terminal.sh",
+        "verify": "04-access-vault.md.verify.sh"
+      }
+    ],
+    "intro": {
+      "courseData": "courseBase.sh",
+      "text": "intro.md",
+      "credits": "Brian Shumate"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "assets": {
+    "host01": [
+      {
+        "file": "main.tf",
+        "target": "/home/scrapbook/tutorial/vtl/"
+      },
+      {
+        "file": "default.yml",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "telegraf.conf",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      },
+      {
+        "file": "vault.hcl",
+        "target": "/home/scrapbook/tutorial/vtl/config/"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal-iframe",
+    "uimessage1": "\u001b[32mVaultron Lab→ \u001b[m\r\n",
+    "hideintro": false,
+    "hidefinish": false,
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["/home/scrapbook/tutorial/vtl/.terraform/*"],
+    "showdashboard": true,
+    "dashboards": [{"name": "Vault UI", "href": "http://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"},{"name": "Consul UI", "href": "http://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"}]
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}

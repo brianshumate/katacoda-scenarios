@@ -1,10 +1,12 @@
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
-The default initialization without arguments results in Vault using the [Shamir's Secret Sharing algorithm](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the unseal key in to 5 key shares with a required quorum of 3 unseal keys needed to successfully unseal Vault.
+You should now be ready to access Vault.
 
-For this example, you can use just 1 key share to speed up the manual unseal process.
+If you chose to use `blazing_sword` you will be logged into Vault with the initial root token and can begin issuing `vault` commands or access the Vault UI.
 
-> **NOTE**: You might have noticed that when this step began, a `VAULT_ADDR` environment variable was exported to a URL that represents the Vault docker container. This is done to ensure your commands address the correct server.
+If not, you need to initialize, unseal, and login to Vault manually.
+
+Here is a simple sequence for doing so.
 
 First, initialize Vault with 1 key share and a key threshold of 1 while saving the output to the file `.vault-init`.
 
@@ -58,6 +60,4 @@ Successful output should contain the following.
 policies            [root]
 ```
 
-You are now ready to perform actions that will generate new telemetry metrics to work with in Splunk Web.
-
-Click **Continue** to proceed to step 3.
+-> **NOTE:** In addition to the tab inline, you can also access the [Vault UI](https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com/) in a separate browser tab.
