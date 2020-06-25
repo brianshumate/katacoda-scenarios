@@ -1,2 +1,2 @@
-# shellcheck disable=SC2164
-# nil
+#!/usr/bin/env bash
+ls
