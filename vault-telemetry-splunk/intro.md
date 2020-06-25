@@ -1,6 +1,6 @@
-[HashiCorp Vault](https://www.vaultproject.io) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
+## version 0.4.0
 
-While doing so, Vault produces a rich set of operational and usage data to provide insight into the life of your Vault servers. One part of the data available from an operating Vault server is the [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
+Vault produces a rich set of operational and usage data to provide insight into the life of your Vault servers. One part of the data available from an operating Vault server is the [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 
 The [telemetry be configured](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution used. Aggregated metrics can then be further analyzed in visual ways with dashboards and alerted on based on your criteria.
 

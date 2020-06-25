@@ -68,7 +68,7 @@
     "hideHiddenFiles": true,
     "exclusionPatterns": ["/home/scrapbook/tutorial/vtl/.terraform/*"],
     "showdashboard": true,
-    "dashboards": [{"name": "Splunk Web", "href": "http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"}]
+    "dashboards": [{"name": "Splunk Web", "href": "http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"},{"name": "Vault UI", "href": "http://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"}]
   },
   "backend": {
     "imageid": "docker"

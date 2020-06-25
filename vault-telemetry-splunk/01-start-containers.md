@@ -34,7 +34,7 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, if everything appears to be okay, apply the plan from the file.
 
-> **NOTE: The apply process will require a few minutes time to complete.** After you apply the plan, it would be a great moment to grab a fresh beverage or take a short break.
+> **NOTE: The apply process will require about 3 minutes time to complete.** The time after you apply the plan would be a great moment to grab a fresh beverage or take a short break.
 
 ```
 terraform apply vault-metrics-lab.plan
@@ -61,7 +61,7 @@ vtl-vault           Up About a minute (unhealthy)
 vtl-telegraf        Up 2 minutes
 ```
 
-The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, wait a bit and check again until the status is **healthy**.
+The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, you need to wait a bit and check again until the status is **healthy**.
 
 > **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
 
