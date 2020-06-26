@@ -1,4 +1,4 @@
-Scenario version 0.6.7
+Scenario version 0.6.8 for use with the [Monitoring Telemetry with Splunk guide]
 
 ----
 
