@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-export terraform_version="0.12.26"
+export terraform_version="0.12.28"
 export vault_version="1.4.2"
 
 # ensure unzip is installed
