@@ -47,18 +47,19 @@ Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk container will still be provisioning and that takes some additional time. To wait for Splunk to become fully ready and have a **healthy** status, use this command.
 
 ```shell
-splunk_ready=0
-while [ $splunk_ready=0 ]
+export splunk_ready=0
+while [ $splunk_ready = 0 ]
   do
     sleep 4s
     if docker ps -f name=vtl-splunk --format "{{.Status}}" \
     | grep -q '(healthy)'
-      then
-        splunk_ready=1
-        printf "Splunk is ready.\n"
-        exit 0
+        then
+            export splunk_ready=1
+            echo "Splunk is ready."
+        else
+            printf "."
     fi
-  done
+done
 ```{{execute T1}}
 
 You can also manually confirm the container status with `docker ps` like this.

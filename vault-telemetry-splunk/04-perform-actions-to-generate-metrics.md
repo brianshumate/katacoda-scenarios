@@ -25,6 +25,7 @@ Now, generate 10 secrets.
 ```shell
 for i in {1..10}
   do
+    printf "."
     vault kv put kv/$i-secret foo=bar > 10-secrets.log 2>&1
 done
 ```{{execute T1}}
@@ -34,6 +35,7 @@ Next, generate 25 secrets (which also updates first 10 secrets).
 ```shell
 for i in {1..25}
   do
+    printf "."
     vault kv put kv/$i-secret foo=bar > 25-secrets.log 2>&1
 done
 ```{{execute T1}}
@@ -43,6 +45,7 @@ Finally, generate 50 secrets (which also updates first 35 secrets).
 ```shell
 for i in {1..50}
   do
+    printf "."
     vault kv put kv/$i-secret foo=bar > 35-secrets.log 2>&1
 done
 ```{{execute T1}}
@@ -68,6 +71,7 @@ Now, login to Vault 10 times as the learner user.
 ```shell
 for i in {1..10}
   do
+    printf "."
     vault login \
       -method=userpass \
       username=learner \
@@ -80,6 +84,7 @@ Login 25 times as the learner user.
 ```shell
 for i in {1..25}
   do
+    printf "."
     vault login \
       -method=userpass \
       username=learner \
@@ -93,6 +98,7 @@ Login 50 times as the learner user.
 ```shell
 for i in {1..50}
   do
+    printf "."
     vault login \
       -method=userpass \
       username=learner \
