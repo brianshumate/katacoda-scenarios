@@ -1,4 +1,4 @@
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+> Click the command (`⮐`) to automatically copy it into the terminal and execute it.
 
 This step will help guide you to generate new data in Vault and as a result, updated telemetry metrics in Splunk.
 

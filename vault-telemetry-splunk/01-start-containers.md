@@ -1,4 +1,4 @@
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+> Click the command (`⮐`) to automatically copy it into the terminal and execute it.
 
 The first step in this lab is to use Terraform to start the containers.
 
@@ -44,7 +44,7 @@ If all goes according to plan, you should observe a message like this in the out
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
-The vtl-splunk container will still be provisioning and that takes some additional time. To wait for Splunk to become fully ready and have a **healthy** status, use this command.
+Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk container will still be provisioning and that takes some additional time. To wait for Splunk to become fully ready and have a **healthy** status, use this command.
 
 ```shell
 splunk_ready=0
@@ -76,6 +76,6 @@ vtl-vault           Up About a minute (unhealthy)
 vtl-telegraf        Up 2 minutes
 ```
 
-> **NOTE:** Vault is listed as unhealthy when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
+> **NOTE:** The Vault container, vtl-vault is listed as **unhealthy** when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
 
 Once your vtl-splunk container has a healthy status, click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to begin using it.
