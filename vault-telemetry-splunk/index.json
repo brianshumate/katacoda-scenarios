@@ -43,14 +43,6 @@
       "text": "finish.md"
     }
   },
-  "assets": {
-    "host01": [
-      {
-        "file": "*",
-        "target": "/root"
-      }
-    ]
-  },
   "environment": {
     "uilayout": "terminal-iframe",
     "uimessage1": "\u001b[32mVault Telemetry Lab→ \u001b[m\r\n",

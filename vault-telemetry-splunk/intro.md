@@ -1,14 +1,14 @@
-Scenario version 0.5.4
+Scenario version 0.6.0
 
 ----
 
-Vault produces a rich set of operational and usage data to provide insight into the life of your Vault servers. One part of the data available from an operating Vault server is the [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
+Vault emits a rich set of operational and usage data to provide insight into the server lifecycle. One type of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 
-The [telemetry be configured](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution used. Aggregated metrics can then be further analyzed in visual ways with dashboards and alerted on based on your criteria.
+You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution used. Aggregated metrics can then be further analyzed in visual ways with dashboards and alerted on based on your criteria.
 
-This scenario helps you to quickly deploy a simple Vault server with Telegraf and Splunk in Docker using Terraform to give you a basic idea of what is possible with the telemetry metrics and as a means to inform your own telemetry aggregation and analysis stack.
+This scenario helps you use a Terraform configuration to deploy a simple Docker container based infrastructure with a Vault server, Telegraf agent, and Splunk server. This should give you a basic idea of what is possible with the telemetry metrics and help inform your own telemetry aggregation and analysis stack.
 
-Specifically, you will do the following while working through this scenario:
+You will do the following tasks while working through this scenario:
 
 1. **Start the containers** - this is where Terraform gets a chance to shine. By defining and applying a plan, we can orchestrate the entire deployment with Terraform, down to all required configuration items in each component of the stack.
 1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the next steps.
