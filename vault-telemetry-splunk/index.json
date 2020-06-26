@@ -44,7 +44,7 @@
     }
   },
   "assets": {
-    "host01": [
+    "client": [
       {
         "file": "main.tf",
         "target": "/home/scrapbook/tutorial/"
