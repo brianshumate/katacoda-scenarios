@@ -1,4 +1,6 @@
-> scenario version 0.4.6
+Scenario version 0.5.0
+
+----
 
 Vault produces a rich set of operational and usage data to provide insight into the life of your Vault servers. One part of the data available from an operating Vault server is the [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 
@@ -12,5 +14,7 @@ Specifically, you will do the following while working through this scenario:
 1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the next steps.
 1. **Perform actions to generate metrics** - Vault will generate some runtime metrics even in an uninitialized and sealed state, but you can use this step to generate additional interesting metrics that you can then check out in Splunk.
 1. **Analyze generated metrics** - Use Splunk Web to analyze, search, and visualize your Vault telemetry metrics.
+
+----
 
 Click **START SCENARIO** to begin.

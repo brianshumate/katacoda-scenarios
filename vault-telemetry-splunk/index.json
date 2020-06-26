@@ -44,22 +44,10 @@
     }
   },
   "assets": {
-    "client": [
+    "host01": [
       {
-        "file": "main.tf",
-        "target": "/home/scrapbook/tutorial/"
-      },
-      {
-        "file": "default.yml",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
-      },
-      {
-        "file": "telegraf.conf",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
-      },
-      {
-        "file": "vault.hcl",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
+        "file": "*",
+        "target": "$HOME/"
       }
     ]
   },
@@ -69,15 +57,26 @@
     "hideintro": false,
     "hidefinish": false,
     "hideHiddenFiles": true,
-    "exclusionPatterns": ["/home/scrapbook/tutorial/vtl/.terraform/*"],
+    "exclusionPatterns": [
+      "/home/scrapbook/tutorial/vtl/.terraform/*"
+    ],
     "showdashboard": true,
-    "dashboards": [{"name": "Splunk Web", "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"},{"name": "Vault UI", "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"}]
+    "dashboards": [
+      {
+        "name": "Splunk Web",
+        "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "Vault UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
   },
   "backend": {
     "imageid": "docker"
   },
   "finish": {
-      "text": "finish.md",
-      "credits": "https://learn.hashicorp.com/vault"
-    }
+    "text": "finish.md",
+    "credits": "https://learn.hashicorp.com/vault"
+  }
 }
