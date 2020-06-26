@@ -1,4 +1,4 @@
-## version 0.4.4
+## Scenario version 0.4.5
 
 Vault produces a rich set of operational and usage data to provide insight into the life of your Vault servers. One part of the data available from an operating Vault server is the [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 

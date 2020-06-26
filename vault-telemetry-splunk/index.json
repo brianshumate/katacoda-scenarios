@@ -19,16 +19,20 @@
         "verify": "02-initialize-and-unseal-vault.md.verify.sh"
       },
       {
+        "title": "Access Splunk Web",
+        "text": "03-access-splunk-web.md"
+      },
+      {
         "title": "Perform actions to generate metrics",
-        "text": "03-perform-actions-to-generate-metrics.md",
-        "code": "03-perform-actions-to-generate-metrics.terminal.sh",
-        "verify": "03-perform-actions-to-generate-metrics.md.verify.sh"
+        "text": "04-perform-actions-to-generate-metrics.md",
+        "code": "04-perform-actions-to-generate-metrics.terminal.sh",
+        "verify": "04-perform-actions-to-generate-metrics.md.verify.sh"
       },
       {
         "title": "Analyze generated metrics",
-        "text": "04-analyze-generated-metrics.md",
-        "code": "04-analyze-generated-metrics.terminal.sh",
-        "verify": "04-analyze-generated-metrics.md.verify.sh"
+        "text": "05-analyze-generated-metrics.md",
+        "code": "05-analyze-generated-metrics.terminal.sh",
+        "verify": "05-analyze-generated-metrics.md.verify.sh"
       }
     ],
     "intro": {
@@ -43,19 +47,19 @@
     "host01": [
       {
         "file": "main.tf",
-        "target": "~/"
+        "target": "/home/scrapbook/tutorial/"
       },
       {
         "file": "default.yml",
-        "target": "~/vtl/config/"
+        "target": "/home/scrapbook/tutorial/vtl/config/"
       },
       {
         "file": "telegraf.conf",
-        "target": "~/vtl/config/"
+        "target": "/home/scrapbook/tutorial/vtl/config/"
       },
       {
         "file": "vault.hcl",
-        "target": "~/vtl/config/"
+        "target": "/home/scrapbook/tutorial/vtl/config/"
       }
     ]
   },
