@@ -19,11 +19,13 @@ You are now ready to explore the existing Vault telemetry metrics.
 1. Click **Metrics** in the left navigation to expand the metrics tree
 1. Click **vault** to expand the Vault related metrics
 
-A great deal of the metrics will not yet have values, but some such as the **runtime** metrics can be briefly explored to confirm that they are indeed present. Let's review a couple existing metrics.
+Let's take a look at some of the metrics, like the **runtime** metrics to confirm that there are indeed values present.
+
+First, take a look at memory the vault process is using.
 
 1. Select the Vault runtime metrics by clicking **runtime** to expand them
 1. Select **alloc_bytes.value**
-1. A line graph will appear that should contain an indication of the memory currently allocated to the vault process expressed in megabytes.
+1. A line graph will appear that should contain an indication of the memory currently allocated to the vault process expressed in megabytes. It will likely show variations between 10 and 20 megabytes.
 
 
 Click **Continue** to proceed to step 4.

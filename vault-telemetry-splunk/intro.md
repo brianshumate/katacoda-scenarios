@@ -8,7 +8,7 @@ You can [configure telemetry](https://www.vaultproject.io/docs/configuration/tel
 
 This scenario helps you become familiar with Vault telemetry in Splunk. It uses Terraform to automate deployment of a simple Docker based infrastructure featuring a Vault server, a Telegraf agent, and a Splunk server. Assembling and using the solution in this scenario should give you a basic idea of what is possible and help inform your own telemetry aggregation and analysis solution.
 
-You will do the following tasks while you work through this scenario:
+You will do the following tasks while you work through the scenario:
 
 1. **Start the containers** - this is where Terraform really shines. By defining and applying a plan, you can orchestrate the entire deployment with Terraform, down to all required configuration items in each component of the stack.
 1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the steps that follow.
