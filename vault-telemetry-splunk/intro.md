@@ -1,4 +1,4 @@
-Scenario version 0.5.2
+Scenario version 0.5.3
 
 ----
 
@@ -12,6 +12,7 @@ Specifically, you will do the following while working through this scenario:
 
 1. **Start the containers** - this is where Terraform gets a chance to shine. By defining and applying a plan, we can orchestrate the entire deployment with Terraform, down to all required configuration items in each component of the stack.
 1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the next steps.
+1. **Access Splunk Web** - Check out the web UI and initial Vault telemetry metrics present there.
 1. **Perform actions to generate metrics** - Vault will generate some runtime metrics even in an uninitialized and sealed state, but you can use this step to generate additional interesting metrics that you can then check out in Splunk.
 1. **Analyze generated metrics** - Use Splunk Web to analyze, search, and visualize your Vault telemetry metrics.
 
