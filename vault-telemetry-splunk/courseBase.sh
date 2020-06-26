@@ -20,10 +20,11 @@ unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
 chmod +x /usr/local/bin/vault && \
 rm -f /home/scrapbook/tutorial/vault.zip
 
+mkdir /home/scrapbook/tutorial/.log
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
 # NOTE: having been unable to get assets working in docker environments
-#       after numerous attempts, going to just write the files out with 
+#       after numerous attempts, going to just write the files out with
 #       cat for now since that actually works.
 
 cat > /home/scrapbook/tutorial/main.tf << 'EOF'

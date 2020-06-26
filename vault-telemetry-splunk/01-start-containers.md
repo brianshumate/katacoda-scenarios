@@ -12,7 +12,7 @@ Once the plan is complete, the infrastructure will be fully configured and ready
 
 Begin by initializing the Terraform configuration.
 
-```
+```shell
 terraform init
 ```{{execute T1}}
 
@@ -20,31 +20,48 @@ Successful output includes the message **Terraform has been successfully initial
 
 Now, define a plan file with the filename `vault-metrics-lab.plan`.
 
-```
+```shell
 terraform plan -out vault-metrics-lab.plan
 ```{{execute T1}}
 
 If this step is successful you will find the following message in the `terraform` output.
 
-```
+```shell
 This plan was saved to: vault-metrics-lab.plan
 ```
 
-Finally, if everything appears to be okay, apply the plan from the file.
+Finally, apply the plan.
 
-> **NOTE: The apply process will require about 3 minutes time to complete.** The time after you apply the plan would be a great moment to grab a fresh beverage or take a short break.
+> **NOTE: The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
 
-```
+```shell
 terraform apply vault-metrics-lab.plan
 ```{{execute T1}}
 
 If all goes according to plan, you should observe a message like this in the output.
 
-```
+```shell
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
-You can then confirm the container status with `docker ps` like this.
+The vtl-splunk container will still be provisioning and that takes some additional time. To wait for Splunk to become fully ready and have a **healthy** status, use this command.
+
+```shell
+splunk_ready=0
+while [ $splunk_ready=0 ]
+  do
+    sleep 4s
+    if docker ps -f name=vtl-splunk --format "{{.Status}}" \
+    | grep -q '(healthy)'
+      then
+        splunk_ready=1
+        printf "Splunk is ready.\n"
+        exit 0
+    fi
+  done
+```{{execute T1}}
+
+You can also manually confirm the container status with `docker ps` like this.
 
 ```
 docker ps -f name=vtl --format "table {{.Names}}\t{{.Status}}"
@@ -59,8 +76,6 @@ vtl-vault           Up About a minute (unhealthy)
 vtl-telegraf        Up 2 minutes
 ```
 
-The vtl-splunk container should have a **healthy** status before proceeding to step 2. If the status is instead listed as **health: starting**, you need to wait a bit and check again until the status is **healthy**.
-
-> **NOTE:** Vault is expected to be unhealthy when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
+> **NOTE:** Vault is listed as unhealthy when it is sealed; in this case, you have not yet initialized or unsealed Vault, so the status is correct and expected.
 
 Once your vtl-splunk container has a healthy status, click **Continue** to proceed to step 2, where you will initialize and unseal Vault, then login to begin using it.
