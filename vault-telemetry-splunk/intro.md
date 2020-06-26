@@ -1,4 +1,4 @@
-Scenario version 0.5.1
+Scenario version 0.5.2
 
 ----
 

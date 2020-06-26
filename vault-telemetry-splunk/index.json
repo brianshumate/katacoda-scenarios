@@ -46,7 +46,7 @@
   "assets": {
     "host01": [
       {
-        "file": "*",
+        "file": "main.tf",
         "target": "/home/scrapbook/tutorial/"
       }
     ]
