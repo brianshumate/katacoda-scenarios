@@ -43,19 +43,19 @@
     "host01": [
       {
         "file": "main.tf",
-        "target": "/home/scrapbook/tutorial/vtl/"
+        "target": "~/"
       },
       {
         "file": "default.yml",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
+        "target": "~/vtl/config/"
       },
       {
         "file": "telegraf.conf",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
+        "target": "~/vtl/config/"
       },
       {
         "file": "vault.hcl",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
+        "target": "~/vtl/config/"
       }
     ]
   },
@@ -71,5 +71,9 @@
   },
   "backend": {
     "imageid": "docker"
-  }
+  },
+  "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
 }
