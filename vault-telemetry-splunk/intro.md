@@ -1,4 +1,4 @@
-Scenario version 0.6.1
+Scenario version 0.6.2
 
 ----
 

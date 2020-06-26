@@ -28,7 +28,8 @@ Successful output from unsealing Vault should resemble this example:
 
 ```
 Key             Value
----             -----Seal Type       shamir
+---             -----
+Seal Type       shamir
 Initialized     true
 Sealed          false
 Total Shares    1
