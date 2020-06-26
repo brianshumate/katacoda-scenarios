@@ -1,20 +1,20 @@
-Scenario version 0.6.2
+Scenario version 0.6.5
 
 ----
 
-Vault emits a rich set of operational and usage data to provide insight into the server lifecycle. One type of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
+Vault emits a rich collection of operational and usage data to provide its users insight and intelligence about the server lifecycle. One such stream of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 
-You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution used. Aggregated metrics can then be further analyzed in visual ways with dashboards and alerted on based on your criteria.
+You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution that you choose. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
 
-This scenario helps you use a Terraform configuration to deploy a simple Docker container based infrastructure with a Vault server, Telegraf agent, and Splunk server. This should give you a basic idea of what is possible with the telemetry metrics and help inform your own telemetry aggregation and analysis stack.
+This scenario helps you become familiar with Vault telemetry in Splunk. It uses Terraform to automate deployment of a simple Docker based infrastructure featuring a Vault server, a Telegraf agent, and a Splunk server. Assembling and using the solution in this scenario should give you a basic idea of what is possible and help inform your own telemetry aggregation and analysis solution.
 
-You will do the following tasks while working through this scenario:
+You will do the following tasks while you work through this scenario:
 
-1. **Start the containers** - this is where Terraform gets a chance to shine. By defining and applying a plan, we can orchestrate the entire deployment with Terraform, down to all required configuration items in each component of the stack.
-1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the next steps.
-1. **Access Splunk Web** - Check out the web UI and initial Vault telemetry metrics present there.
-1. **Perform actions to generate metrics** - Vault will generate some runtime metrics even in an uninitialized and sealed state, but you can use this step to generate additional interesting metrics that you can then check out in Splunk.
-1. **Analyze generated metrics** - Use Splunk Web to analyze, search, and visualize your Vault telemetry metrics.
+1. **Start the containers** - this is where Terraform really shines. By defining and applying a plan, you can orchestrate the entire deployment with Terraform, down to all required configuration items in each component of the stack.
+1. **Initialize and unseal Vault** - Prepare Vault for use by initializing it and unsealing it. You will also login to Vault so that you can use it for the steps that follow.
+1. **Access Splunk Web** - Check out the Splunk Web UI and initial Vault telemetry metrics present in Splunk.
+1. **Perform actions to generate metrics** - Vault will generate some runtime metrics even in an uninitialized and sealed state, but in this step you will generate additional interesting metrics that you can then revisit in Splunk.
+1. **Analyze generated metrics** - Use Splunk Web to analyze, search, and visualize your Vault telemetry metrics including building a simple dashboard.
 
 ----
 

@@ -99,4 +99,4 @@ vault login -no-print \
 $(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
 ```{{execute T1}}
 
-Click **Continue** to proceed to step 4.
+Click **Continue** to proceed to step 5.

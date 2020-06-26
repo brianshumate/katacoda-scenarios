@@ -61,4 +61,6 @@ policies            [root]
 
 You are now ready to perform actions that will generate new telemetry metrics to work with in Splunk Web.
 
+> **NOTE:** You will use a root token in this scenario for simplicity. However, in actual production environments, root tokens should be closely guarded and used only for tightly controlled purposes. Review the documentation on [root tokens](https://www.vaultproject.io/docs/concepts/tokens#root-tokens) for more details.
+
 Click **Continue** to proceed to step 3.
