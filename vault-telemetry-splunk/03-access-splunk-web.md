@@ -15,7 +15,6 @@ You are now ready to explore the existing Vault telemetry metrics.
 1. Acknowledge any _Welcome, Administrator_ dialog by clicking **Skip**
 1. Click the **Analytics** tab.
 1. Click **Metrics** in the left navigation to expand the metrics tree.
-1. Click **vault** to expand the Vault related metrics.
 
 You'll notice that there are plenty of system related metrics like **cpu.usage**, **disk**, **mem**, and so on.
 
