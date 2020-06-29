@@ -40,6 +40,8 @@ Cluster ID      3a4aca58-eaaf-ae81-6856-8dc8524c9404
 HA Enabled      false
 ```
 
+> **NOTE:** You will use a root token in this scenario for simplicity. However, in actual production environments, root tokens should be closely guarded and used only for tightly controlled purposes. Review the documentation on [root tokens](https://www.vaultproject.io/docs/concepts/tokens#root-tokens) for more details.
+
 Finally, you can login to Vault with `vault login` by passing the **Initial Root Token** value from `.vault-init` file.
 
 ```
@@ -60,7 +62,5 @@ policies            [root]
 ```
 
 You are now ready to check out the Splunk Web interface and existing Vault telemetry metric data.
-
-> **NOTE:** You will use a root token in this scenario for simplicity. However, in actual production environments, root tokens should be closely guarded and used only for tightly controlled purposes. Review the documentation on [root tokens](https://www.vaultproject.io/docs/concepts/tokens#root-tokens) for more details.
 
 Click **Continue** to proceed to step 3.

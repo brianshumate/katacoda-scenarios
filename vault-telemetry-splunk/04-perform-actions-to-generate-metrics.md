@@ -28,7 +28,7 @@ for i in {1..10}
     printf "."
     vault kv put kv/$i-secret foo=bar > 10-secrets.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 Next, generate 25 secrets (which also updates first 10 secrets).
@@ -39,7 +39,7 @@ for i in {1..25}
     printf "."
     vault kv put kv/$i-secret foo=bar > 25-secrets.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 Finally, generate 50 secrets (which also updates first 35 secrets).
@@ -50,7 +50,7 @@ for i in {1..50}
     printf "."
     vault kv put kv/$i-secret foo=bar > 35-secrets.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 ## Tokens & Leases
@@ -80,7 +80,7 @@ for i in {1..10}
       username=learner \
       password=p@ssw0rd > 10-userpass.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 Login 25 times as the learner user.
@@ -94,7 +94,7 @@ for i in {1..25}
       username=learner \
       password=p@ssw0rd > 25-userpass.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 
@@ -109,7 +109,7 @@ for i in {1..50}
       username=learner \
       password=p@ssw0rd > 50-userpass.log 2>&1
 done
-echo
+printf "\n"
 ```{{execute T1}}
 
 Since you have been logging in with the username and password auth method, you are no longer authenticated to Vault with the root token.
