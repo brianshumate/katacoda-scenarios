@@ -17,7 +17,15 @@ You are now ready to explore the existing Vault telemetry metrics.
 1. Click **Metrics** in the left navigation to expand the metrics tree.
 1. Click **vault** to expand the Vault related metrics.
 
-Let's take a look at some of the metrics, like the **runtime** metrics to confirm that there are indeed values present.
+You'll notice that there are plenty of system related metrics like **cpu.usage**, **disk**, **mem**, and so on.
+
+1. Go ahead and click on **cpu.usage**
+1. Click **user**
+1. You should observe a small chart in the center panel that contains a graph of recent CPU usage activity
+
+This metric, like the other system level metrics present, originates from the Telegraf agent itself.
+
+Now, let's take a look at some of the Vault specific metrics, like the **runtime** metrics to confirm that there are indeed values present there as well.
 
 First, check out metrics about vault process memory usage.
 

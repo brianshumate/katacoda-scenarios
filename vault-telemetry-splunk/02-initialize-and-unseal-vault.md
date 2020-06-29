@@ -49,7 +49,7 @@ vault login -no-print \
 $(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
 ```{{execute T1}}
 
-This command should produce no output when successful. If you want to confirm that the login was successful, try a token lookup.
+This command should produce no output when successful. If you want to confirm that the login was successful, try a token lookup and confirm that your tokenm policies contain **[root]**.
 
 ```
 vault token lookup | grep policies

@@ -3,31 +3,13 @@
 
 export log_dir="/home/scrapbook/tutorial/.log"
 
-if vault secrets list --detailed | grep kv/ | grep -q 'version:2'
-  then
-    echo "done"
-  else
-    echo "K/V version 2 secrets engine is not enabled." >> "$log_dir"/04-perform-actions.log 2>&1
-fi
+kv_v2_enabled="$(vault secrets list --detailed | grep kv/ | grep -q 'version:2'; echo $?)"
+50_secret_present="$(vault kv list kv/ | grep -q 50-secret ; echo $?)"
+userpass_enabled="$(vault auth list | grep -q userpass/ ; echo $?)"
+learner_user_present="$(vault list auth/userpass/users/ | grep -q learner ; echo $?)"
 
-if vault kv list kv/ | grep -q 50-secret
-  then
-    echo "done"
-  else
-    echo "Missing 50-secret from K/V secrets engine" >> "$log_dir"/04-perform-actions.log 2>&1
-fi
-
-if vault auth list | grep -q userpass/
-  then
-    echo "done"
-  else
-    echo "Username and password auth method not enabled." >> "$log_dir"/04-perform-actions.log 2>&1
-fi
-
-
-if vault list auth/userpass/users/ | grep -q learner
-  then
-    echo "done"
-  else
-    echo "learner user not present" >> "$log_dir"/04-perform-actions.log 2>&1
+if [ "${kv_v2_enabled}" = "0" ] && [ "${50_secret_present}" = "0" ] && [ "${userpass_enabled}" = "0" ] && [ "${learner_user_present}" = "0" ]; then
+  echo "done"
+else
+  echo "something is wrong" >> "$log_dir"/04-perform-actions.log
 fi

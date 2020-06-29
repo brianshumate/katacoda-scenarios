@@ -30,7 +30,7 @@ for i in {1..10}
     printf "."
     vault kv put kv/$i-secret-10 id="$(uuidgen)" >> 10-secrets.log 2>&1
 done
-printf "\n"
+echo
 ```{{execute T1}}
 
 Next, generate 25 secrets.
@@ -125,7 +125,7 @@ done
 printf "\n"
 ```{{execute T1}}
 
-Since you have logged in to Vault with the username and password auth method, you are no longer authenticated to Vault with the initial root token.
+Since you have most recently authenticated to Vault with the username and password auth method, you are no longer authenticated to Vault with the initial root token.
 
 Before continuing to the next step, login once again with the initial root token.
 

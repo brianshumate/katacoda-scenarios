@@ -32,7 +32,7 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, apply the plan.
 
-> **NOTE: The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
+> **NOTE:** The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
 
 ```shell
 terraform apply vault-metrics-lab.plan
@@ -44,7 +44,7 @@ If all goes according to plan, you should observe a message like this in the out
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 
-Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk container will still be provisioning and that takes some additional time. To wait for Splunk to become fully ready and have a **healthy** status, use this command.
+Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk container will still be provisioning and that takes additional time. To wait for Splunk to become fully ready with a **healthy** status, use this command.
 
 ```shell
 export splunk_ready=0
@@ -64,13 +64,13 @@ done
 
 You can also manually confirm the container status with `docker ps` like this.
 
-```
+```shell
 docker ps -f name=vtl --format "table {{.Names}}\t{{.Status}}"
 ```{{execute T1}}
 
 Output should resemble this example.
 
-```
+```plaintext
 NAMES               STATUS
 vtl-splunk          Up About a minute (healthy)
 vtl-vault           Up About a minute (unhealthy)
