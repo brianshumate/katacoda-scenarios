@@ -8,7 +8,7 @@ This is done with 3 `terraform` commands, which accomplish the following tasks:
 1. Define a plan
 1. Apply the defined plan
 
-Once the plan is complete, the infrastructure will be fully configured and ready to go.
+Once the plan is applied, the infrastructure will be fully configured and ready to go.
 
 Begin by initializing the Terraform configuration.
 

@@ -3,8 +3,8 @@
 
 export log_dir="/root/.log"
 
-vault login -no-print \
-$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
+vault login "$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')" \
+>> "$log_dir"/04-perform-actions.log
 
 sleep 1
 
