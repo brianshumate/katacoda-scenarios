@@ -49,7 +49,7 @@
     "hidefinish": false,
     "hideHiddenFiles": true,
     "exclusionPatterns": [
-      "/home/scrapbook/tutorial/vtl/.terraform/*"
+      "/root/vtl/.terraform/*"
     ],
     "showdashboard": true,
     "dashboards": [
