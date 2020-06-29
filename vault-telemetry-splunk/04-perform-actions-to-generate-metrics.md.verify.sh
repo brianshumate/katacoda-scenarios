@@ -3,6 +3,9 @@
 
 export log_dir="/root/.log"
 
+vault login -no-print \
+$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
+
 sleep 1
 
 if vault kv list kv/ | grep -q 50-secret; then
