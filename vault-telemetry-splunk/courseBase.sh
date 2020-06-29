@@ -8,7 +8,8 @@ export vault_version="1.4.2"
 
 mkdir -p "$log_dir"
 
-# ensure unzip is installed
+# ensure unzip and uuid-runtime are installed
+apt update && \
 apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
 download_terraform() {
@@ -27,21 +28,10 @@ install() {
   rm -f /home/scrapbook/tutorial/"$1".zip
 }
 
-if download_terraform; then
-  install terraform;
-else
-  if download_terraform; then
-    install terraform;
-  fi
-fi
-
-if download_vault; then
-  install vault;
-else
-  if download_vault; then
-    install vault;
-  fi
-fi
+download_terraform
+download_vault
+install terraform
+install vault
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
