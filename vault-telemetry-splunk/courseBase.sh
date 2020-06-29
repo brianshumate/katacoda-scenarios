@@ -1,30 +1,52 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
+
+export log_dir="/home/scrapbook/tutorial/.log"
 export terraform_version="0.12.28"
 export vault_version="1.4.2"
 
+mkdir -p "$log_dir"
+
 # ensure unzip is installed
-apt install -y unzip uuid-runtime
+apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
-# Download and install Terraform
-curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
-chmod +x /usr/local/bin/terraform && \
-rm -f /home/scrapbook/tutorial/terraform.zip
+download_terraform() {
+# Download Terraform
+  curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/"$terraform_version"/terraform_"$terraform_version"_linux_amd64.zip  >> "$log_dir"/install.log
+}
 
+# Download Vault
+download_vault() {
+  curl -L -o "$HOME"/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"$vault_version"/vault_"$vault_version"_linux_amd64.zip  >> "$log_dir"/install.log
+}
 
-# Download and install Vault
-curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
-chmod +x /usr/local/bin/vault && \
-rm -f /home/scrapbook/tutorial/vault.zip
+install() {
+  unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/"$1".zip  >> "$log_dir"/install.log && \
+  chmod +x /usr/local/bin/"$1" && \
+  rm -f /home/scrapbook/tutorial/"$1".zip
+}
 
-mkdir /home/scrapbook/tutorial/.log
+if download_terraform; then
+  install terraform;
+else
+  if download_terraform; then
+    install terraform;
+  fi
+fi
+
+if download_vault; then
+  install vault;
+else
+  if download_vault; then
+    install vault;
+  fi
+fi
+
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
-# NOTE: having been unable to get assets working in docker environments
-#       after numerous attempts, going to just write the files out with
+# NOTE: Unable to get assets consistently working in docker environments
+#       after numerous attempts, so going to just write the files out with
 #       cat for now since that actually works.
 
 cat > /home/scrapbook/tutorial/main.tf << 'EOF'
@@ -450,7 +472,6 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
   # No configuration required
 
 EOF
-
 
 cat > /home/scrapbook/tutorial/vtl/config/vault.hcl << 'EOF'
 log_level = "trace"
