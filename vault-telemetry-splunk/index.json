@@ -10,7 +10,6 @@
         "title": "Start containers",
         "text": "01-start-containers.md",
         "code": "01-start-containers.md.terminal.sh",
-        "foreground": "await-terraform-installation.sh",
         "verify": "01-start-containers.md.verify.sh"
       },
       {
