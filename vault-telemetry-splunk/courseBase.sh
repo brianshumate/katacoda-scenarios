@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-cat > /root/await-installation << 'EOF'
-#!/usr/bin/env bash
-printf "Awaiting completion of Terraform installation"
-while [ ! -x /usr/local/bin/terraform ]; do
-  sleep 1
-  printf "."
-done
-clear
-EOF
-chmod +x /root/await-installation
+# cat > /usr/local/bin/await-install << 'EOF'
+# #!/usr/bin/env bash
+# printf "Awaiting completion of Terraform installation"
+# while [ ! -x /usr/local/bin/terraform ]; do
+#   sleep 2
+#   printf "."
+# done
+# clear
+# EOF
+# chmod +x /root/await-installation
 
 export log_dir="/root/.log"
 export terraform_version="0.12.28"
