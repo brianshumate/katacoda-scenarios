@@ -27,7 +27,12 @@ install() {
 download vault "$vault_version" && \
 download terraform "$terraform_version" && \
 install terraform && \
-install vault && \
+install vault
+
+while [ ! -x /usr/local/bin/terraform ]; do 
+  sleep 1;
+  printf "."
+done
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
