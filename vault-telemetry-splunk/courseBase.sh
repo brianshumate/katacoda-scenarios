@@ -23,15 +23,10 @@ install() {
   rm -f "$HOME"/"$1".zip
 }
 
-download vault "$vault_version" && \
 download terraform "$terraform_version" && \
 install terraform && \
+download vault "$vault_version" && \
 install vault
-
-while [ ! -x /usr/local/bin/terraform ]; do 
-  sleep 1;
-  printf "."
-done
 
 mkdir -p /root/vtl/{config,tfstate}
 

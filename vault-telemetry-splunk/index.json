@@ -15,7 +15,8 @@
         "title": "Initialize and unseal Vault",
         "text": "02-initialize-and-unseal-vault.md",
         "code": "02-initialize-and-unseal-vault.terminal.sh",
-        "verify": "02-initialize-and-unseal-vault.md.verify.sh"
+        "verify": "02-initialize-and-unseal-vault.md.verify.sh",
+        "background": "while [ ! -x /usr/local/bin/terraform ]; do sleep 1; printf '.'; done"
       },
       {
         "title": "Access Splunk Web",
