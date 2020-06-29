@@ -361,7 +361,7 @@ wait_for_splunk_retry_num: 60
 EOF
 
 cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
-# VSS Telegraf Configuration
+# Telegraf Configuration
 
 [global_tags]
   index="vault-metrics"
@@ -415,7 +415,42 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 [[inputs.swap]]
   # No configuration required
 
+# Read metrics about disk usage using default configuration values
+[[inputs.disk]]
+  ## By default stats will be gathered for all mount points.
+  ## Set mount_points will restrict the stats to only the specified mount points.
+  ## mount_points = ["/"]
+  ## Ignore mount points by filesystem type.
+  ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+
+[[inputs.diskio]]
+  # devices = ["sda", "sdb"]
+  # skip_serial_number = false
+
+[[inputs.kernel]]
+  # No configuration required
+
+[[inputs.linux_sysctl_fs]]
+  # No configuration required
+
+[[inputs.net]]
+  # Specify an interface or all
+  # interfaces = ["enp0s*"]
+
+[[inputs.netstat]]
+  # No configuration required
+
+[[inputs.processes]]
+  # No configuration required
+
+[[inputs.procstat]]
+ pattern = "(vault)"
+
+[[inputs.system]]
+  # No configuration required
+
 EOF
+
 
 cat > /home/scrapbook/tutorial/vtl/config/vault.hcl << 'EOF'
 log_level = "trace"
