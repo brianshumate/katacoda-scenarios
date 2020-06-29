@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-
 export log_dir="/home/scrapbook/tutorial/.log"
 export terraform_version="0.12.28"
 export vault_version="1.4.2"
@@ -55,7 +54,7 @@ terraform {
 # -----------------------------------------------------------------------
 
 variable "docker_host" {
-  default = "tcp://docker:2345"
+  default = "unix:///var/run/docker.sock"
 }
 
 variable "splunk_version" {
