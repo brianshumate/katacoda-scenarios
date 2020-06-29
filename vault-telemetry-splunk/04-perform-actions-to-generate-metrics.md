@@ -10,7 +10,7 @@ echo "Welcome back to the terminal."
 
 ## K/V version 2 secrets
 
-The first kind of new data you can generate are a set of static [key/value version 2 secrets](https://www.vaultproject.io/api-docs/secret/kv/kv-v2) with an incremental count to produce telemetry metrics for later analysis.
+The first kind of new data you will generate are a set of static [key/value version 2 secrets](https://www.vaultproject.io/api-docs/secret/kv/kv-v2) with an incremental count to produce telemetry metrics for later analysis.
 
 These commands will produce excessive output, so the output is sent to a log file to keep the terminal uncluttered.
 
