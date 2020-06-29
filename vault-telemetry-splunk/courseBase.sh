@@ -12,26 +12,22 @@ mkdir -p "$log_dir"
 apt update && \
 apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
-download_terraform() {
-# Download Terraform
-  curl -L -o "$HOME"/terraform.zip https://releases.hashicorp.com/terraform/"$terraform_version"/terraform_"$terraform_version"_linux_amd64.zip  >> "$log_dir"/install.log
+# Download function
+download() {
+  curl --fail --location --silent --show-error --output "$HOME"/"${1}".zip https://releases.hashicorp.com/"${1}"/"${2}"/"${1}"_"${2}"_linux_amd64.zip  >> "$log_dir"/install.log
 }
 
-# Download Vault
-download_vault() {
-  curl -L -o "$HOME"/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"$vault_version"/vault_"$vault_version"_linux_amd64.zip  >> "$log_dir"/install.log
-}
-
+# Install function
 install() {
-  unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/"$1".zip  >> "$log_dir"/install.log && \
+  unzip -d  /usr/local/bin/ "$HOME"/"$1".zip  >> "$log_dir"/install.log && \
   chmod +x /usr/local/bin/"$1" && \
-  rm -f /home/scrapbook/tutorial/"$1".zip
+  rm -f "$HOME"/"$1".zip
 }
 
-download_terraform
-download_vault
-install terraform
-install vault
+download vault "$vault_version" && \
+download terraform "$terraform_version" && \
+install terraform && \
+install vault && \
 
 mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
 
