@@ -5,8 +5,8 @@ The first step in this lab is to use Terraform to start the containers.
 This is done with 3 `terraform` commands, which accomplish the following tasks:
 
 1. Initialize the Terraform configuration
-2. Define a plan
-3. Apply the defined plan
+1. Define a plan
+1. Apply the defined plan
 
 Once the plan is complete, the infrastructure will be fully configured and ready to go.
 

@@ -2,7 +2,7 @@
 
 This step will help guide you to generate new data in Vault and as a result, updated telemetry metrics in Splunk.
 
-You will use the `vault` CLI for these steps, so run the following command to ensure that you are in the **Terminal** tab.
+You will use the `vault` CLI for these steps, so run the following command to ensure that you are back in the **Terminal** tab.
 
 ```shell
 echo "Welcome back to the terminal."
@@ -10,11 +10,13 @@ echo "Welcome back to the terminal."
 
 ## K/V version 2 secrets
 
-Generate some secrets with an incrementally increasing count to produce telemetry metrics for later analysis.
+The first kind of new data you can generate are a set of static [key/value version 2 secrets](https://www.vaultproject.io/api-docs/secret/kv/kv-v2) with an incremental count to produce telemetry metrics for later analysis.
 
-For commands which will produce excessive output, the output is sent to a log file to keep the terminal uncluttered. You should wait until the `$` prompt re-appears after executing each command before executing the next command.
+These commands will produce excessive output, so the output is sent to a log file to keep the terminal uncluttered.
 
-First, enable a K/V version 2 secrets engine.
+> **NOTE**: You should wait until the `$` prompt reappears after executing each command before executing the next command.
+
+First, enable a K/V version 2 secrets engine at the default path `kv/`.
 
 ```shell
 vault secrets enable -version=2 kv
@@ -26,47 +28,58 @@ Now, generate 10 secrets.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret foo=bar > 10-secrets.log 2>&1
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> 10-secrets.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
 
-Next, generate 25 secrets (which also updates first 10 secrets).
+Next, generate 25 secrets.
 
 ```shell
 for i in {1..25}
   do
     printf "."
-    vault kv put kv/$i-secret foo=bar > 25-secrets.log 2>&1
+    vault kv put kv/$i-secret-25 id="$(uuidgen)" >> 25-secrets.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
 
-Finally, generate 50 secrets (which also updates first 35 secrets).
+Generate 50 secrets.
 
 ```shell
 for i in {1..50}
   do
     printf "."
-    vault kv put kv/$i-secret foo=bar > 35-secrets.log 2>&1
+    vault kv put kv/$i-secret-50 id="$(uuidgen)" >> 50-secrets.log 2>&1
+done
+printf "\n"
+```{{execute T1}}
+
+Finally, update the first 10 secrets and change their values.
+
+```shell
+for i in {1..50}
+  do
+    printf "."
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> 10-secrets.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
 
 ## Tokens & Leases
 
-Enable a username and password (userpass) auth method and login with it to generate some tokens and leases.
+Enable a [username and password](https://www.vaultproject.io/api-docs/auth/userpass) (userpass) auth method, and login with it to generate tokens and leases.
 
-First, enable the auth method.
+First, enable the userpass auth method.
 
 ```shell
 vault auth enable userpass
 ```{{execute T1}}
 
-Next, add a learner user with the password **p@ssw0rd**.
+Next, add a learner user with the password **vtl-password**.
 
 ```shell
-vault write auth/userpass/users/learner password=p@ssw0rd
+vault write auth/userpass/users/learner password=vtl-password
 ```{{execute T1}}
 
 Now, login to Vault 10 times as the learner user.
@@ -78,7 +91,7 @@ for i in {1..10}
     vault login \
       -method=userpass \
       username=learner \
-      password=p@ssw0rd > 10-userpass.log 2>&1
+      password=vtl-password > 10-userpass.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
@@ -92,7 +105,7 @@ for i in {1..25}
     vault login \
       -method=userpass \
       username=learner \
-      password=p@ssw0rd > 25-userpass.log 2>&1
+      password=vtl-password > 25-userpass.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
@@ -107,14 +120,14 @@ for i in {1..50}
     vault login \
       -method=userpass \
       username=learner \
-      password=p@ssw0rd > 50-userpass.log 2>&1
+      password=vtl-password > 50-userpass.log 2>&1
 done
 printf "\n"
 ```{{execute T1}}
 
-Since you have been logging in with the username and password auth method, you are no longer authenticated to Vault with the root token.
+Since you have logged in to Vault with the username and password auth method, you are no longer authenticated to Vault with the initial root token.
 
-Before continuing, login once again with the initial root token.
+Before continuing to the next step, login once again with the initial root token.
 
 ```shell
 vault login -no-print \

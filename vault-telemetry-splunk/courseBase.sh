@@ -5,7 +5,7 @@ export terraform_version="0.12.28"
 export vault_version="1.4.2"
 
 # ensure unzip is installed
-apt install -y unzip
+apt install -y unzip uuid-runtime
 
 # Download and install Terraform
 curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
