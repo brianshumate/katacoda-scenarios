@@ -7,3 +7,5 @@
 # else
 #   echo "Splunk container is not healthy. Please ensure it is up and healthy before continuing." >> "$HOME"/01-start-containers.log 2>&1
 # fi
+
+echo "done"

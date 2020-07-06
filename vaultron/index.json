@@ -40,37 +40,17 @@
       "text": "finish.md"
     }
   },
-  "assets": {
-    "host01": [
-      {
-        "file": "main.tf",
-        "target": "/home/scrapbook/tutorial/vtl/"
-      },
-      {
-        "file": "default.yml",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
-      },
-      {
-        "file": "telegraf.conf",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
-      },
-      {
-        "file": "vault.hcl",
-        "target": "/home/scrapbook/tutorial/vtl/config/"
-      }
-    ]
-  },
   "environment": {
     "uilayout": "terminal-iframe",
     "uimessage1": "\u001b[32mVaultron Lab→ \u001b[m\r\n",
     "hideintro": false,
     "hidefinish": false,
     "hideHiddenFiles": true,
-    "exclusionPatterns": ["/home/scrapbook/tutorial/vtl/.terraform/*"],
+    "exclusionPatterns": ["/root/.terraform/*"],
     "showdashboard": true,
     "dashboards": [{"name": "Vault UI", "href": "http://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"},{"name": "Consul UI", "href": "http://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"}]
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "ubuntu"
   }
 }

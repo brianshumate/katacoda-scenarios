@@ -23,3 +23,5 @@
 #   else
 #     echo "Vault token does not contain root policy; you need to login with the initial root token before continuing." >> "$HOME"/02-init-and-unseal.log 2>&1
 # fi
+
+echo "done"

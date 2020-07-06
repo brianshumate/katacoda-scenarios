@@ -1,29 +1,34 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
+export log_dir="/root/.log"
 export consul_version="1.8.0"
-export terraform_version="0.12.26"
+export terraform_version="0.12.28"
 export vault_version="1.4.2"
 
-# ensure git and unzip art installed
-apt install -y git unzip
+mkdir -p "$log_dir"
 
-# Download and install Consul
-curl -L -o /home/scrapbook/tutorial/consul.zip https://releases.hashicorp.com/consul/"${consul_version}"/consul_"${consul_version}"_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/consul.zip && \
-chmod +x /usr/local/bin/consul && \
-rm -f /home/scrapbook/tutorial/consul.zip
+# ensure unzip and uuid-runtime are installed
+apt update && \
+apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
-# Download and install Terraform
-curl -L -o /home/scrapbook/tutorial/terraform.zip https://releases.hashicorp.com/terraform/"${terraform_version}"/terraform_"${terraform_version}"_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/terraform.zip && \
-chmod +x /usr/local/bin/terraform && \
-rm -f /home/scrapbook/tutorial/terraform.zip
+# Download function
+download() {
+  curl --fail --location --silent --show-error --output "$HOME"/"${1}".zip https://releases.hashicorp.com/"${1}"/"${2}"/"${1}"_"${2}"_linux_amd64.zip  >> "$log_dir"/install.log
+}
 
-# Download and install Vault
-curl -L -o /home/scrapbook/tutorial/vault.zip https://releases.hashicorp.com/vault/"${vault_version}"/vault_"${vault_version}"_linux_amd64.zip && \
-unzip -d  /usr/local/bin/ /home/scrapbook/tutorial/vault.zip && \
-chmod +x /usr/local/bin/vault && \
-rm -f /home/scrapbook/tutorial/vault.zip
+# Install function
+install() {
+  unzip -d  /usr/local/bin/ "$HOME"/"$1".zip  >> "$log_dir"/install.log && \
+  chmod +x /usr/local/bin/"$1" && \
+  rm -f "$HOME"/"$1".zip
+}
+
+download terraform "$terraform_version" && \
+install terraform && \
+download vault "$vault_version" && \
+install vault && \
+download consul "$consul_version" && \
+install consul
 
 git clone --branch v3.4.4 https://github.com/brianshumate/vaultron.git
