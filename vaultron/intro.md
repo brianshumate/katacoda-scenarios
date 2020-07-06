@@ -1,4 +1,4 @@
-## version 0.0.1
+<small>Scenario version 0.0.2</small>
 
 [HashiCorp Vault](https://www.vaultproject.io) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
 
