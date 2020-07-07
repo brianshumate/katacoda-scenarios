@@ -315,8 +315,8 @@ splunk:
             sourcetype: hashicorp_vault_telemetry
   home: /opt/splunk
   http_enableSSL: true
-  http_enableSSL_cert: null
-  http_enableSSL_privKey: null
+  http_enableSSL_cert: /opt/splunk/etc/auth/splunkweb/cert.pem
+  http_enableSSL_privKey: /opt/splunk/etc/auth/splunkweb/privkey.pem
   http_enableSSL_privKey_password: null
   http_port: 8000
   idxc:
