@@ -1,4 +1,4 @@
-Now that you have generated some leases, secrets, and tokens, click the **Splunk Web** tab and explore those updated metrics.
+Now that you have generated some leases, secrets, and tokens, go back to your **Splunk Web** browser tab and explore those updated metrics.
 
 First, click the **Refresh** button in the center section to provide you with the latest metrics you recently generated.. Note that due to interface scaling, it can appear abbreviated as **Ref...**.
 
@@ -33,9 +33,8 @@ Check out the **cpu.usage.guest** metric
 1. Scroll to the metrics under **cpu.usage** and observe the updates there.
 1. Click **guest** under **cpu.usage**.
 
-
 ### Dashboard
 
 To save a dashboard of all currently selected metrics, follow these steps.
 
-TODO: Dashboard steps
+TODO: Dashboard steps will be added when finished in guide!
