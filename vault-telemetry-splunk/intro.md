@@ -1,4 +1,4 @@
-<small>Scenario version 1.0.5
+<small>Scenario version 1.0.5</small>
 
 ----
 
